@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+  background: linear-gradient(90deg, #003038, #00879E);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+app-root, router-outlet, .container, .component-wrapper {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.card,
+.container,
+.bg-light,
+.bg-white {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+}
+.navbar .nav-link.active {
+  color: #FFAB5B !important; /* bright yellow */
+  font-weight: bold;
+  font-style: italic;
+}
+
+.navbar-text-style {
+  /*font-family: 'Playfair Display', serif;*/
+  font-weight: 400;
+  /*font-style: italic;*/
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+.navbar-bg-custom {
+  background-color: #FFF2DB !important;
+}
+.book-now-btn {
+  width: 138px;
+  height: 44px;
+  border-radius: 40px;
+  color: #00879E;
+  background-color: white;
+  border: 2px solid #00879E;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+  background-color: #FFAB5B;
+  color: white;
+}
+
+
+
