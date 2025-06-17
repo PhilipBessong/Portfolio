@@ -6,3 +6,68 @@
   display: block;
   background: transparent;
 }
+.hometxt {
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 56px;
+  color: #003038;
+  text-align: center;
+}
+
+.to-text {
+  font-size: 48px;
+  font-weight: 400;
+  color: #FFAB5B;
+}
+.book-now-btn-home {
+  width: 200px;
+  height: 80px;
+  border-radius: 40px;
+  color: #00879E;
+  background-color: white;
+  border: 2px solid #00879E;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: x-large;
+}
+.book-now-btn-home:hover {
+  background-color: #FFAB5B;
+  color: white;
+}
+.carousel-img {
+  max-height: 400px; /* adjust as needed */
+  object-fit: cover; /* optional: ensures image fills width while maintaining aspect ratio */
+}
+.carousel-caption {
+  bottom: 20px;
+}
+
+.carousel-caption h5 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.carousel-caption .btn {
+width: 200px;
+  height: 80px;
+  border-radius: 40px;
+  color: #00879E;
+  background-color: white;
+  border: 2px solid #00879E;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: x-large;
+}
+.carousel-caption .btn:hover {
+  background-color: #FFAB5B;
+  color: white;
+}
+.form-control {
+  border-radius: 20px;
+  border: 2px solid #00879E;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3); /* transparent black */
+}
+

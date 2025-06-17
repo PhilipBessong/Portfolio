@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6 mb-4" *ngFor="let room of rooms">
+    <div class="card room-card">
+      <img [src]="room.images[0]" class="card-img-top room-image" alt="{{ room.name }}" />
+      <div class="card-body" style="background-color: rgba(0, 0, 0, 0.5); padding: 2rem;">
+        <h5 class="card-title" style="color: white;">{{ room.name }}</h5>
+        <p class="card-text" style="color: white;"><strong>Capacity:</strong> {{ room.capacity }} people</p>
+        <p class="card-text" style="color: white;"><strong>Price:</strong> R{{ room.price }} per night</p>
+        <p class="card-text" style="color: white;"><strong>Amenities:</strong></p>
+        <ul class="amenities-list" style="color: white;">
+          <li *ngFor="let amenity of room.amenities">{{ amenity }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
