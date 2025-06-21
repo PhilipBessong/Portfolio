@@ -6,62 +6,203 @@
   display: block;
   background: transparent;
 }
+
+/* Default desktop styles — apply always */
 .hometxt {
   font-weight: 700;
   font-size: 72px;
   line-height: 56px;
-  color: #003038;
+  color: #003038;  /* desktop text color */
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .to-text {
+  display: block;
   font-size: 48px;
   font-weight: 400;
-  color: #FFAB5B;
+  color: #FFAB5B; /* desktop color same as hometxt */
+  margin: 18px 0;  /* space above and below to center visually */
 }
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .glass {
+    flex-direction: column;
+    position: relative;
+  }
+
+  #carouselExample {
+    width: 100% !important;
+  }
+
+  .glass > .w-25 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 10;
+    padding: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hometxt {
+    font-size: 48px;
+    line-height: 44px;
+    color: #FFAB5B; /* colored on tablet */
+  }
+
+  .to-text {
+    font-size: 32px;
+    color: #003038;
+    margin: 14px 0;
+  }
+
+  .book-now-btn-home {
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hometxt {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .to-text {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .book-now-btn-home {
+    width: 100px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+}
+
+
 .book-now-btn-home {
   width: 200px;
-  height: 80px;
-  border-radius: 40px;
+  height: 60px;
+  border-radius: 30px;
   color: #00879E;
   background-color: white;
   border: 2px solid #00879E;
   font-weight: bold;
+  font-size: 1.25rem; /* Base size for medium screens */
   transition: all 0.3s ease;
-  font-size: x-large;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .book-now-btn-home {
+    width: 150px;
+    height: 50px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-now-btn-home {
+    width: 100px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+}
+
 .book-now-btn-home:hover {
   background-color: #FFAB5B;
   color: white;
 }
+/* Main image style (unchanged) */
 .carousel-img {
-  max-height: 400px; /* adjust as needed */
-  object-fit: cover; /* optional: ensures image fills width while maintaining aspect ratio */
-}
-.carousel-caption {
-  bottom: 20px;
+  max-height: 400px;
+  object-fit: cover;
 }
 
+/* Caption container */
+.carousel-caption {
+  bottom: 20px;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5); /* fallback if bg-dark class doesn't apply */
+  border-radius: 10px;
+}
+
+/* Room title */
 .carousel-caption h5 {
   font-size: 1.5rem;
   color: #fff;
+  margin-bottom: 0.5rem;
 }
 
+/* Main button */
 .carousel-caption .btn {
-width: 200px;
-  height: 80px;
-  border-radius: 40px;
+  width: 200px;
+  height: 60px;
+  border-radius: 30px;
   color: #00879E;
   background-color: white;
   border: 2px solid #00879E;
   font-weight: bold;
   transition: all 0.3s ease;
-  font-size: x-large;
+  font-size: 1.25rem;
 }
+
+/* Hover effect */
 .carousel-caption .btn:hover {
   background-color: #FFAB5B;
   color: white;
 }
+
+/* Tablet */
+@media (max-width: 768px) {
+  .carousel-caption h5 {
+    font-size: 1.25rem;
+  }
+
+  .carousel-caption .btn {
+    width: 160px;
+    height: 50px;
+    font-size: 1rem;
+    border-radius: 25px;
+  }
+
+  .carousel-caption {
+    padding: 0.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .carousel-caption h5 {
+    font-size: 1rem;
+  }
+
+  .carousel-caption .btn {
+    width: 130px;
+    height: 45px;
+    font-size: 0.9rem;
+    border-radius: 22px;
+  }
+
+  .carousel-caption {
+    padding: 0.5rem;
+  }
+}
+
 .form-control {
   border-radius: 20px;
   border: 2px solid #00879E;

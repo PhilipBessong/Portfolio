@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <!--Home Page Content-->
   <div class="glass position-relative d-flex">
     <!-- Carousel -->
     <div
@@ -23,10 +24,9 @@
         </div>
       </div>
     </div>
-
     <!-- Text Section -->
     <div
-      class="w-25 d-flex flex-column justify-content-center align-items-center ps-4 bg-light"
+      class="w-25 d-flex flex-column justify-content-center align-items-center ps-4 bg-light text-overlay"
     >
       <h1 class="mb-4 hometxt">
         Welcome<br />
@@ -35,7 +35,7 @@
       </h1>
 
       <pre></pre>
-      <button class="btn book-now-btn-home align-self-center">Book Now</button>
+      <button class="btn book-now-btn-home align-self-center ">Book Now</button>
     </div>
   </div>
   <pre></pre>
@@ -95,9 +95,9 @@
             class="carousel-item"
             [class.active]="i === 0"
           >
-            <img [src]="item.image" class="d-block w-100" alt="Room image" />
+            <img [src]="item.image" class="d-block w-100 carousel-img" alt="Room image" />
             <div
-              class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2"
+              class="carousel-caption d-block d-md-block bg-dark bg-opacity-50 rounded p-2"
             >
               <h5>{{ item.name }}</h5>
               <button
@@ -219,7 +219,7 @@
   </div>
   <!-- Testimonials Section -->
   <div class="container py-4">
-    <div class="glass">
+    <div class="glass" style="padding: 2%">
       <h2 class="text-center mb-4">What Our Guests Say</h2>
       <div class="row">
         <div class="col-md-4 mb-4">
@@ -228,7 +228,7 @@
               "The Plum was a fantastic experience! The staff were friendly and
               the rooms were immaculate."
             </p>
-            <p class="text-end"><strong>- John Doe</strong></p>
+            <p class="text-center"><strong>- John Doe</strong></p>
           </div>
         </div>
         <div class="col-md-4 mb-4">
@@ -237,7 +237,7 @@
               "A perfect getaway! The amenities were top-notch and the location
               was serene."
             </p>
-            <p class="text-end"><strong>- Jane Smith</strong></p>
+            <p class="text-center"><strong>- Jane Smith</strong></p>
           </div>
         </div>
         <div class="col-md-4 mb-4">
@@ -246,7 +246,7 @@
               "Highly recommend The Plum for a relaxing vacation. The views were
               breathtaking!"
             </p>
-            <p class="text-end"><strong>- Emily Johnson</strong></p>
+            <p class="text-center"><strong>- Emily Johnson</strong></p>
           </div>
         </div>
       </div>

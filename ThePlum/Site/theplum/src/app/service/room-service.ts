@@ -3,7 +3,10 @@ import { Injectable } from '@angular/core';
 export interface Room {
   id: string;
   name: string;
-  capacity: number;
+  acapacity: number;
+  bcapacity: number;
+  bedNum: number;
+  bathNum: number;
   price: number;
   amenities: string[];
   images: string[];
@@ -19,33 +22,42 @@ export class RoomService {
     {
       id: '1',
       name: 'The Affectionate One',
-      capacity: 2,
-      price: 120,
+      acapacity: 2,
+      bcapacity: 1,
+      bedNum: 1,
+      bathNum: 1,
+      price: 800,
       amenities: [
         'Free Wi-Fi',
         'Air Conditioning',
         'Free Parking',
         'Solar Power',
       ],
-      images: ['/assets/AffShot.jpg'],
+      images: ['/assets/AffShot.jpg', '/assets/croom.jpg'],
     },
     {
       id: '2',
       name: 'Bush Mango',
-      capacity: 4,
-      price: 220,
+      acapacity: 4,
+      bcapacity: 2,
+      bedNum: 2,
+      bathNum: 1,
+      price: 1000,
       amenities: [
         'Free Wi-Fi',
         'Air Conditioning',
         'Family Friendly',
         'Barbeque Facilities',
       ],
-      images: ['/assets/BushShot2.jpg'],
+      images: ['/assets/BushShot2.jpg', '/assets/BushShot.jpg'],
     },
     {
       id: '3',
       name: 'The Affectionate Two',
-      capacity: 2,
+      acapacity: 2,
+      bcapacity: 1,
+      bedNum: 1,
+      bathNum: 1,
       price: 100,
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: ['/assets/AffShot2.jpg'],
@@ -53,10 +65,13 @@ export class RoomService {
     {
       id: '4',
       name: 'The Plum',
-      capacity: 2,
-      price: 100,
+      acapacity: 2,
+      bcapacity: 1,
+      bedNum: 1,
+      bathNum: 1,
+      price: 1400,
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
-      images: ['/assets/Lounge.jpg'],
+      images: ['/assets/Lounge.jpg', '/assets/Kitchen.jpg', '/assets/RoomShot.jpg', '/assets/RoomShot2.jpg', '/assets/RoomShot3.jpg', '/assets/RoomShot4.jpg', '/assets/RoomShot5.jpg'],
     },
   ];
 

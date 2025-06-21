@@ -1,0 +1,14 @@
+.modal-content {
+  border-radius: 15px;
+  background-color: #f8f9fa;
+}
+
+.modal-header,
+.modal-footer {
+  background-color: #e9ecef;
+}
+
+.form-control:focus {
+  border-color: #00879E;
+  box-shadow: 0 0 0 0.2rem rgba(0, 135, 158, 0.25);
+}

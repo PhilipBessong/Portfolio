@@ -1,0 +1,86 @@
+<div class="modal fade"  id="bookNowModal" tabindex="-1" aria-labelledby="bookNowLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bookNowLabel">Book a Room</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+          <!-- Room Select -->
+          <div class="mb-3">
+            <label for="roomSelect" class="form-label">Room</label>
+            <select
+              class="form-select"
+              id="roomSelect"
+              required
+              [(ngModel)]="booking.roomId"
+              name="roomId"
+            >
+              <option *ngFor="let room of rooms" [value]="room.id">{{ room.name }}</option>
+            </select>
+          </div>
+
+          <!-- Check-in -->
+          <div class="mb-3">
+            <label for="checkin" class="form-label">Check-in</label>
+            <input
+              type="date"
+              class="form-control"
+              id="checkin"
+              required
+              [(ngModel)]="booking.checkin"
+              name="checkin"
+            />
+          </div>
+
+          <!-- Check-out -->
+          <div class="mb-3">
+            <label for="checkout" class="form-label">Check-out</label>
+            <input
+              type="date"
+              class="form-control"
+              id="checkout"
+              required
+              [(ngModel)]="booking.checkout"
+              name="checkout"
+            />
+          </div>
+
+          <!-- Adults -->
+          <div class="mb-3">
+            <label for="adults" class="form-label">Adults</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="adults"
+              required
+              [(ngModel)]="booking.adults"
+              name="adults"
+            />
+          </div>
+
+          <!-- Children -->
+          <div class="mb-3">
+            <label for="children" class="form-label">Children</label>
+            <input
+              type="number"
+              min="0"
+              class="form-control"
+              id="children"
+              [(ngModel)]="booking.children"
+              name="children"
+            />
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" [disabled]="!bookingForm.form.valid">
+              Confirm Booking
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
