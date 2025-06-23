@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, createComponent, EnvironmentInjector } from '@angular/core';
+import { BookNow } from '../book-now/book-now';
 
 export interface Room {
   id: string;
@@ -16,7 +17,7 @@ export interface Room {
   providedIn: 'root',
 })
 export class RoomService {
-  constructor() {}
+  constructor(private injector: EnvironmentInjector) {}
 
   private rooms: Room[] = [
     {
@@ -81,5 +82,16 @@ export class RoomService {
 
   getRoomById(id: string): Room | undefined {
     return this.rooms.find((room) => room.id === id);
+  }
+
+  openBookNowModal() {
+    const modal = document.createElement('div');
+    modal.id = 'book-now-modal';
+    document.body.appendChild(modal);
+
+    const compRef = createComponent(BookNow, {
+      environmentInjector: this.injector,
+      hostElement: modal,
+    });
   }
 }

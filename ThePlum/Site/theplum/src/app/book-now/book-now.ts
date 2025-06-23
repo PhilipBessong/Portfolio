@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RoomService, Room } from '../service/room-service';
+
 @Component({
   selector: 'app-book-now',
   imports: [ CommonModule,
@@ -10,6 +11,11 @@ import { RoomService, Room } from '../service/room-service';
   styleUrl: './book-now.css'
 })
 export class BookNow implements OnInit {
+   @Input() roomName: string = '';
+  @Input() visible: boolean = false;
+
+  @Output() onClose = new EventEmitter<void>();
+  @Output() onBook = new EventEmitter<void>();
   rooms: Room[] = [];
 
   booking = {
@@ -38,5 +44,8 @@ export class BookNow implements OnInit {
     });
     // You can send this to Firebase or a backend here.
     alert(`Booking submitted for ${selectedRoom?.name}`);
+  }
+    close() {
+    this.onClose.emit();
   }
 }

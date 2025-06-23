@@ -10,8 +10,8 @@
 /* Default desktop styles — apply always */
 .hometxt {
   font-weight: 700;
-  font-size: 72px;
-  line-height: 56px;
+   font-size: 4vw; /* Responsive font size */
+  line-height: 1.2;
   color: #003038;  /* desktop text color */
   text-align: center;
   margin: 0;
@@ -20,10 +20,10 @@
 
 .to-text {
   display: block;
-  font-size: 48px;
+ font-size: 3vw;
   font-weight: 400;
   color: #FFAB5B; /* desktop color same as hometxt */
-  margin: 18px 0;  /* space above and below to center visually */
+   margin: 1rem 0;  /* space above and below to center visually */
 }
 
 /* Responsive styles for smaller screens */
@@ -211,4 +211,71 @@
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.3); /* transparent black */
 }
+
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+   background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+  z-index: 999;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popup-body {
+  margin: 1rem 0;
+}
+
+.popup-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.form-control:focus {
+  border-color: #00879E;
+  box-shadow: 0 0 0 0.2rem rgba(0, 135, 158, 0.25);
+}
+.form-select{
+  border-radius: 20px;
+  border: 2px solid #00879E;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3); /* transparent black */
+}
+.bookbtns{
+  background-color: #00879E;
+  color: #ffffff;
+   border-radius: 20px;
+  border: 2px solid #00879E;
+}
+.bookbtncancel{
+  background-color:brown;
+  color: #ffffff;
+   border-radius: 20px;
+  border: 2px solid brown;
+}
+
 

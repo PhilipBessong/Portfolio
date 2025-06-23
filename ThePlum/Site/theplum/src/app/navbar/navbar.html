@@ -51,8 +51,108 @@
         >
       </li>
       <li class="nav-item ms-3">
-        <button class="btn book-now-btn" data-bs-toggle="modal" data-bs-target="#bookNowModal">Book Now</button>
+        <button (click)="openBookNow()" class="btn book-now-btn" >Book Now</button>
       </li>
     </ul>
   </div>
 </nav>
+
+<!-- 🔸 Book Now Popup -->
+    <div
+      class="popup-backdrop"
+      *ngIf="showBookNow"
+      (click)="closeBookNow()"
+    ></div>
+    <div
+      class="glass popup-container"
+      *ngIf="showBookNow"
+      (click)="$event.stopPropagation()"
+    >
+      <div class="popup-header">
+        <h5 style="color: aliceblue;">Book Now</h5>
+        <button class="btn-close" style="background-color: red;" (click)="closeBookNow()"></button>
+      </div>
+      <div class="popup-body">
+        <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+          <!-- Room Select -->
+          <div class="mb-3">
+            <label for="roomSelect" class="form-label" style="color: aliceblue;">Room</label>
+            <select
+              class="form-select"
+              id="roomSelect"
+              required
+              [(ngModel)]="booking.roomId"
+              name="roomId"
+            >
+              <option *ngFor="let room of rooms" [value]="room.id">
+                {{ room.name }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Check-in -->
+          <div class="mb-3">
+            <label for="checkin" class="form-label" style="color: aliceblue;">Check-in</label>
+            <input
+              type="date"
+              class="form-control"
+              id="checkin"
+              required
+              [(ngModel)]="booking.checkin"
+              name="checkin"
+            />
+          </div>
+
+          <!-- Check-out -->
+          <div class="mb-3">
+            <label for="checkout" class="form-label" style="color: aliceblue;">Check-out</label>
+            <input
+              type="date"
+              class="form-control"
+              id="checkout"
+              required
+              [(ngModel)]="booking.checkout"
+              name="checkout"
+            />
+          </div>
+
+          <!-- Adults -->
+          <div class="mb-3">
+            <label for="adults" class="form-label" style="color: aliceblue;">Adults</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="adults"
+              required
+              [(ngModel)]="booking.adults"
+              name="adults"
+            />
+          </div>
+
+          <!-- Children -->
+          <div class="mb-3">
+            <label for="children" class="form-label" style="color: aliceblue;">Children</label>
+            <input
+              type="number"
+              min="0"
+              class="form-control"
+              id="children"
+              [(ngModel)]="booking.children"
+              name="children"
+            />
+          </div>
+
+          <div class="popup-footer d-flex justify-content-end">
+            <button
+              type="submit"
+              class="btn bookbtns"
+              [disabled]="!bookingForm.form.valid"
+            >
+              Confirm Booking
+            </button>
+            
+          </div>
+        </form>
+      </div>
+    </div>

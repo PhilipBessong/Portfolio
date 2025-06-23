@@ -35,14 +35,19 @@
       </h1>
 
       <pre></pre>
-      <button class="btn book-now-btn-home align-self-center ">Book Now</button>
+      <button
+        (click)="openBookNow()"
+        class="btn book-now-btn-home align-self-center"
+      >
+        Book Now
+      </button>
     </div>
   </div>
   <pre></pre>
   <div class="container py-4">
     <div class="glass">
       <pre></pre>
-      <h2 class="text-center mb-4" style="color: white;">Essential Amenities</h2>
+      <h2 class="text-center mb-4" style="color: white">Essential Amenities</h2>
       <div class="row text-center">
         <!-- Free Wi-Fi -->
         <div class="col-6 col-sm-4 col-md-2 mb-4">
@@ -75,182 +80,290 @@
           <h6 class="mt-2">Family Friendly</h6>
         </div>
       </div>
+      <pre></pre>
+      
+      
     </div>
-  </div>
-  <pre></pre>
-  <!-- Room Carousel -->
-  <div class="glass">
-    <br>
-    <h2 class="text-center mb-4" style="color: white;">Our Rooms</h2>
-    <div class="carousel-wrapper mx-auto" style="width: 90%">
-      <div
-        id="roomCarousel"
-        class="carousel slide"
-        data-bs-ride="carousel"
-        data-bs-interval="3000"
-      >
-        <div class="carousel-inner">
+    <!-- Room Carousel -->
+      <div class="glass">
+        <br />
+        <h2 class="text-center mb-4" style="color: white">Our Rooms</h2>
+        <div class="carousel-wrapper mx-auto" style="width: 90%">
           <div
-            *ngFor="let item of carouselItems; let i = index"
-            class="carousel-item"
-            [class.active]="i === 0"
+            id="roomCarousel"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            data-bs-interval="3000"
           >
-            <img [src]="item.image" class="d-block w-100 carousel-img" alt="Room image" />
-            <div
-              class="carousel-caption d-block d-md-block bg-dark bg-opacity-50 rounded p-2"
-            >
-              <h5>{{ item.name }}</h5>
-              <button
-                class="btn btn-primary mt-2"
-                (click)="navigateToRoomDetails(item.id)"
+            <div class="carousel-inner">
+              <div
+                *ngFor="let item of carouselItems; let i = index"
+                class="carousel-item"
+                [class.active]="i === 0"
               >
-                View Room
+                <img
+                  [src]="item.image"
+                  class="d-block w-100 carousel-img"
+                  alt="Room image"
+                />
+                <div
+                  class="carousel-caption d-block d-md-block bg-dark bg-opacity-50 rounded p-2"
+                >
+                  <h5>{{ item.name }}</h5>
+                  <button
+                    class="btn btn-primary mt-2"
+                    (click)="navigateToRoomDetails(item.id)"
+                  >
+                    View Room
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#roomCarousel"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#roomCarousel"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- About and Contact Section -->
+      <div class="row">
+        <div class="col glass" style="margin: 5%; padding: 2%">
+          <h2 class="text-center mb-4" style="color: white">About The Plum</h2>
+          <p class="text-justify">
+            The Plum is a serene getaway nestled in the heart of nature,
+            offering a perfect blend of comfort and utility. Our accommodations
+            are designed to provide you with a relaxing experience, whether
+            you're here for a family vacation or a work trip.
+          </p>
+          <button class="btn book-now-btn align-self-center">
+            <a routerLink="/about" style="color: #00879E;">Learn More</a>
+            <span class="visually-hidden">About The Plum</span>
+          </button>
+        </div>
+        <div class="col glass" style="margin: 5%; padding: 2%">
+          <h2 class="text-center mb-4" style="color: white">Contact Us</h2>
+          <p class="text-center">
+            Have questions or need assistance? Reach out to us and we'll get
+            back to you as soon as possible.
+          </p>
+
+          <form
+            #contactForm="ngForm"
+            (ngSubmit)="onSubmit(contactForm)"
+            class="mt-4"
+            style="
+              background-color: rgba(0, 0, 0, 0.7);
+              border-radius: 20px;
+              padding: 20px;
+            "
+          >
+            <div class="form-group mb-3">
+              <label for="name" style="color: white">Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                name="name"
+                ngModel
+                required
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="email" style="color: white">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                name="email"
+                ngModel
+                required
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="subject" style="color: white">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                class="form-control"
+                name="subject"
+                ngModel
+              />
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="message" style="color: white">Message</label>
+              <textarea
+                id="message"
+                rows="4"
+                class="form-control"
+                name="message"
+                ngModel
+                required
+              ></textarea>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn bookbtns"
+                [disabled]="!contactForm.valid"
+              >
+                Send
               </button>
+            </div>
+          </form>
+          <br />
+        </div>
+      </div>
+      <!-- Testimonials Section -->
+      <div class="container py-4">
+        <div class="glass" style="padding: 2%">
+          <h2 class="text-center mb-4">What Our Guests Say</h2>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="testimonial">
+                <p>
+                  "The Plum was a fantastic experience! The staff were friendly
+                  and the rooms were immaculate."
+                </p>
+                <p class="text-center"><strong>- John Doe</strong></p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="testimonial">
+                <p>
+                  "A perfect getaway! The amenities were top-notch and the
+                  location was serene."
+                </p>
+                <p class="text-center"><strong>- Jane Smith</strong></p>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="testimonial">
+                <p>
+                  "Highly recommend The Plum for a relaxing vacation. The views
+                  were breathtaking!"
+                </p>
+                <p class="text-center"><strong>- Emily Johnson</strong></p>
+              </div>
             </div>
           </div>
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#roomCarousel"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#roomCarousel"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon"></span>
-        </button>
+      </div>
+      <pre></pre>
+    <!-- 🔸 Book Now Popup -->
+   <div
+      class="popup-backdrop"
+      *ngIf="showBookNow"
+      (click)="closeBookNow()"
+    ></div>
+    <div
+      class="glass popup-container"
+      *ngIf="showBookNow"
+      (click)="$event.stopPropagation()"
+    >
+      <div class="popup-header">
+        <h5 style="color: aliceblue;">Book Now</h5>
+        <button class="btn-close" style="background-color: red;" (click)="closeBookNow()"></button>
+      </div>
+      <div class="popup-body">
+        <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
+          <!-- Room Select -->
+          <div class="mb-3">
+            <label for="roomSelect" class="form-label" style="color: aliceblue;">Room</label>
+            <select
+              class="form-select"
+              id="roomSelect"
+              required
+              [(ngModel)]="booking.roomId"
+              name="roomId"
+            >
+              <option *ngFor="let room of rooms" [value]="room.id">
+                {{ room.name }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Check-in -->
+          <div class="mb-3">
+            <label for="checkin" class="form-label" style="color: aliceblue;">Check-in</label>
+            <input
+              type="date"
+              class="form-control"
+              id="checkin"
+              required
+              [(ngModel)]="booking.checkin"
+              name="checkin"
+            />
+          </div>
+
+          <!-- Check-out -->
+          <div class="mb-3">
+            <label for="checkout" class="form-label" style="color: aliceblue;">Check-out</label>
+            <input
+              type="date"
+              class="form-control"
+              id="checkout"
+              required
+              [(ngModel)]="booking.checkout"
+              name="checkout"
+            />
+          </div>
+
+          <!-- Adults -->
+          <div class="mb-3">
+            <label for="adults" class="form-label" style="color: aliceblue;">Adults</label>
+            <input
+              type="number"
+              min="1"
+              class="form-control"
+              id="adults"
+              required
+              [(ngModel)]="booking.adults"
+              name="adults"
+            />
+          </div>
+
+          <!-- Children -->
+          <div class="mb-3">
+            <label for="children" class="form-label" style="color: aliceblue;">Children</label>
+            <input
+              type="number"
+              min="0"
+              class="form-control"
+              id="children"
+              [(ngModel)]="booking.children"
+              name="children"
+            />
+          </div>
+
+          <div class="popup-footer d-flex justify-content-end">
+            <button
+              type="submit"
+              class="btn bookbtns"
+              [disabled]="!bookingForm.form.valid"
+            >
+              Confirm Booking
+            </button>
+            
+          </div>
+        </form>
       </div>
     </div>
   </div>
-
-  <!-- About and Contact Section -->
-  <div class="row">
-    <div class="col glass" style="margin: 5%; padding: 2%">
-      <h2 class="text-center mb-4" style="color: white;">About The Plum</h2>
-      <p class="text-justify">
-        The Plum is a serene getaway nestled in the heart of nature, offering a
-        perfect blend of comfort and utility. Our accommodations are designed to
-        provide you with a relaxing experience, whether you're here for a family
-        vacation or a work trip.
-      </p>
-      <button class="btn book-now-btn align-self-center">
-        <a routerLink="/about">Learn More</a>
-        <span class="visually-hidden">About The Plum</span>
-      </button>
-    </div>
-    <div class="col glass" style="margin: 5%; padding: 2%">
-      <h2 class="text-center mb-4" style="color: white;">Contact Us</h2>
-      <p class="text-center">
-        Have questions or need assistance? Reach out to us and we'll get back to
-        you as soon as possible.
-      </p>
-      
-      <form
-        #contactForm="ngForm"
-        (ngSubmit)="onSubmit(contactForm)"
-        class="mt-4"
-        style="background-color: rgba(0, 0, 0, 0.7); border-radius: 20px; padding: 20px;"
-      >
-        <div class="form-group mb-3">
-          <label for="name" style="color: white;">Name</label>
-          <input
-            type="text"
-            id="name"
-            class="form-control"
-            name="name"
-            ngModel
-            required
-          />
-        </div>
-
-        <div class="form-group mb-3">
-          <label for="email" style="color: white;">Email</label>
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            name="email"
-            ngModel
-            required
-          />
-        </div>
-
-        <div class="form-group mb-3">
-          <label for="subject" style="color: white;">Subject</label>
-          <input
-            type="text"
-            id="subject"
-            class="form-control"
-            name="subject"
-            ngModel
-          />
-        </div>
-
-        <div class="form-group mb-3">
-          <label for="message" style="color: white;">Message</label>
-          <textarea
-            id="message"
-            rows="4"
-            class="form-control"
-            name="message"
-            ngModel
-            required
-          ></textarea>
-        </div>
-
-        <div class="d-flex justify-content-center">
-          <button
-            type="submit"
-            class="btn book-now-btn"
-            [disabled]="!contactForm.valid"
-          >
-            Send
-          </button>
-        </div>
-      </form>
-      <br />
-    </div>
-  </div>
-  <!-- Testimonials Section -->
-  <div class="container py-4">
-    <div class="glass" style="padding: 2%">
-      <h2 class="text-center mb-4">What Our Guests Say</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="testimonial">
-            <p>
-              "The Plum was a fantastic experience! The staff were friendly and
-              the rooms were immaculate."
-            </p>
-            <p class="text-center"><strong>- John Doe</strong></p>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="testimonial">
-            <p>
-              "A perfect getaway! The amenities were top-notch and the location
-              was serene."
-            </p>
-            <p class="text-center"><strong>- Jane Smith</strong></p>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="testimonial">
-            <p>
-              "Highly recommend The Plum for a relaxing vacation. The views were
-              breathtaking!"
-            </p>
-            <p class="text-center"><strong>- Emily Johnson</strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <pre></pre>
 </div>
