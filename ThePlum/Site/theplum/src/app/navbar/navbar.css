@@ -64,19 +64,11 @@ margin-left: 10px;
   border-color: #00879E;
   box-shadow: 0 0 0 0.2rem rgba(0, 135, 158, 0.25);
 }
-.form-control {
+.form-control, .form-select {
   border-radius: 20px;
   border: 2px solid #00879E;
   padding: 10px;
-  font-size: 16px;
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.3); /* transparent black */
-}
-.form-select{
-  border-radius: 20px;
-  border: 2px solid #00879E;
-  padding: 10px;
-  font-size: 16px;
+  font-size: 15px;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.3); /* transparent black */
 }

@@ -1,4 +1,8 @@
-import { Injectable, createComponent, EnvironmentInjector } from '@angular/core';
+import {
+  Injectable,
+  createComponent,
+  EnvironmentInjector,
+} from '@angular/core';
 import { BookNow } from '../book-now/book-now';
 
 export interface Room {
@@ -11,6 +15,7 @@ export interface Room {
   price: number;
   amenities: string[];
   images: string[];
+  status?: string; // Optional property for room status
 }
 
 @Injectable({
@@ -23,7 +28,7 @@ export class RoomService {
     {
       id: '1',
       name: 'The Affectionate One',
-      acapacity: 2,
+      acapacity: 1,
       bcapacity: 1,
       bedNum: 1,
       bathNum: 1,
@@ -38,6 +43,17 @@ export class RoomService {
     },
     {
       id: '2',
+      name: 'The Affectionate Two',
+      acapacity: 2,
+      bcapacity: 1,
+      bedNum: 1,
+      bathNum: 1,
+      price: 850,
+      amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
+      images: ['/assets/AffShot2.jpg'],
+    },
+    {
+      id: '3',
       name: 'Bush Mango',
       acapacity: 4,
       bcapacity: 2,
@@ -53,26 +69,23 @@ export class RoomService {
       images: ['/assets/BushShot2.jpg', '/assets/BushShot.jpg'],
     },
     {
-      id: '3',
-      name: 'The Affectionate Two',
-      acapacity: 2,
-      bcapacity: 1,
-      bedNum: 1,
-      bathNum: 1,
-      price: 100,
-      amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
-      images: ['/assets/AffShot2.jpg'],
-    },
-    {
       id: '4',
       name: 'The Plum',
-      acapacity: 2,
+      acapacity: 8,
       bcapacity: 1,
       bedNum: 1,
       bathNum: 1,
       price: 1400,
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
-      images: ['/assets/Lounge.jpg', '/assets/Kitchen.jpg', '/assets/RoomShot.jpg', '/assets/RoomShot2.jpg', '/assets/RoomShot3.jpg', '/assets/RoomShot4.jpg', '/assets/RoomShot5.jpg'],
+      images: [
+        '/assets/Lounge.jpg',
+        '/assets/Kitchen.jpg',
+        '/assets/RoomShot.jpg',
+        '/assets/RoomShot2.jpg',
+        '/assets/RoomShot3.jpg',
+        '/assets/RoomShot4.jpg',
+        '/assets/RoomShot5.jpg',
+      ],
     },
   ];
 

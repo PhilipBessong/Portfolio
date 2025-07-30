@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class Navbar {
    showBookNow = false;
     rooms: Room[] = [];
+    selectedRoom: Room | undefined;
 booking = {
     fName: '',
     lName: '',
@@ -27,6 +28,22 @@ booking = {
 
   constructor(private roomService: RoomService) {
     this.rooms = this.roomService.getRooms();
+  }
+
+   // This is triggered automatically when [(ngModel)]="booking.roomId" changes
+  ngDoCheck() {
+    const newRoom = this.roomService.getRoomById(this.booking.roomId);
+    if (newRoom && newRoom !== this.selectedRoom) {
+      this.selectedRoom = newRoom;
+
+      // Optional: Clamp values if they exceed the new limits
+      if (this.booking.adults > newRoom.acapacity) {
+        this.booking.adults = newRoom.acapacity;
+      }
+      if (this.booking.children > newRoom.bcapacity) {
+        this.booking.children = newRoom.bcapacity;
+      }
+    }
   }
 
   submitBooking() {
