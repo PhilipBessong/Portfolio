@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { RoomService,Room } from '../service/room-service';
+import { RoomService, Room } from '../service/room-service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterModule,CommonModule, FormsModule],
+  imports: [RouterModule, CommonModule, FormsModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
-  providers: [RoomService]
+  providers: [RoomService],
 })
 export class Navbar {
-   showBookNow = false;
-    rooms: Room[] = [];
-    selectedRoom: Room | undefined;
-booking = {
+  showBookNow = false;
+  rooms: Room[] = [];
+  selectedRoom: Room | undefined;
+  booking = {
     fName: '',
     lName: '',
     email: '',
@@ -30,7 +30,7 @@ booking = {
     this.rooms = this.roomService.getRooms();
   }
 
-   // This is triggered automatically when [(ngModel)]="booking.roomId" changes
+  // This is triggered automatically when [(ngModel)]="booking.roomId" changes
   ngDoCheck() {
     const newRoom = this.roomService.getRoomById(this.booking.roomId);
     if (newRoom && newRoom !== this.selectedRoom) {
@@ -40,7 +40,6 @@ booking = {
       if (this.booking.adults > newRoom.capacity) {
         this.booking.adults = newRoom.capacity;
       }
-    
     }
   }
 
@@ -53,7 +52,7 @@ booking = {
     // You can send this to Firebase or a backend here.
     alert(`Booking submitted for ${selectedRoom?.name}`);
   }
-  
+
   openBookNow() {
     this.showBookNow = true;
   }
@@ -62,4 +61,3 @@ booking = {
     this.showBookNow = false;
   }
 }
-

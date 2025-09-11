@@ -4,6 +4,7 @@ import {
   EnvironmentInjector,
 } from '@angular/core';
 import { BookNow } from '../book-now/book-now';
+import { Observable } from 'rxjs';
 
 // user.model.ts
 export interface User {
@@ -77,6 +78,16 @@ export interface Rooms {
   amenities: string[];
   images: string[];
   status?: string; // Optional property for room status
+}
+export interface ContactPayload {
+  firstName: string;
+  lastName?: string;
+  email: string;
+  phone?: string;
+  subject: string;
+  message: string;
+  roomId?: string | null;
+  newsletter?: boolean;
 }
 
 @Injectable({
@@ -163,5 +174,16 @@ export class RoomService {
       environmentInjector: this.injector,
       hostElement: modal,
     });
+  }
+ sendContactMessage(payload: ContactPayload): Observable<any> {
+    console.log('Contact message payload:', payload);
+    // Here you would typically make an HTTP request to your backend API.
+    // For demonstration, we'll return an observable that simulates a successful response.
+    return new Observable((observer) => {
+      setTimeout(() => {
+        observer.next({ success: true });
+        observer.complete();
+      }, 1000); // Simulate network delay
+    }); 
   }
 }

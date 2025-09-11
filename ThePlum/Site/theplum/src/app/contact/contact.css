@@ -1,0 +1,51 @@
+/* ✅ Responsive map container */
+.map-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.form-control {
+  border-radius: 20px;
+  border: 2px solid #00879E;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3); /* transparent black */
+}
+.form-control:focus {
+  border-color: #00879E;
+  box-shadow: 0 0 0 0.2rem rgba(0, 135, 158, 0.25);
+}
+.form-select{
+  border-radius: 20px;
+  border: 2px solid #00879E;
+  padding: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3); /* transparent black */
+}
+label{
+    color: #ffffff;
+    padding-top: 1%;
+}
+.bookbtns{
+  background-color: #00879E;
+  color: #ffffff;
+   border-radius: 20px;
+  border: 2px solid #00879E;
+}
