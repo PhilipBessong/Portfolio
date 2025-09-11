@@ -5,7 +5,68 @@ import {
 } from '@angular/core';
 import { BookNow } from '../book-now/book-now';
 
+// user.model.ts
+export interface User {
+id: string; // uuid
+first_name: string;
+last_name: string;
+email: string;
+phone: string;
+created_at: Date;
+}
+
+
+// room.model.ts
 export interface Room {
+id: string;
+name: string;
+capacity: number;
+bedNum: number;
+bathNum: number;
+price: number;
+amenities: string[];
+images: string[];
+status?: string; // optional: available, occupied, maintenance
+}
+
+
+// booking.model.ts
+export interface Booking {
+id: string; // uuid
+room_id: string;
+user_id: string;
+start_date: string; // ISO date string
+end_date: string; // ISO date string
+total_price: number;
+status: 'pending' | 'confirmed' | 'cancelled' | 'checked_in' | 'checked_out';
+source: 'website' | 'phone' | 'OTA';
+created_at: Date;
+}
+
+
+// payment.model.ts
+export interface Payment {
+id: string; // uuid
+booking_id: string;
+amount: number;
+currency: string;
+provider: 'stripe' | 'paypal';
+provider_reference: string;
+status: 'pending' | 'succeeded' | 'refunded';
+processed_at: Date;
+}
+
+
+// cal-event.model.ts
+export interface CalEvent {
+id: string; // uuid
+booking_id: string;
+google_event_id: string;
+synced_at: Date;
+sync_status: 'created' | 'updated' | 'failed';
+}
+
+export interface Rooms {
   id: string;
   name: string;
   acapacity: number;
@@ -28,8 +89,7 @@ export class RoomService {
     {
       id: '1',
       name: 'The Affectionate One',
-      acapacity: 1,
-      bcapacity: 1,
+      capacity: 1,
       bedNum: 1,
       bathNum: 1,
       price: 800,
@@ -44,8 +104,7 @@ export class RoomService {
     {
       id: '2',
       name: 'The Affectionate Two',
-      acapacity: 2,
-      bcapacity: 1,
+      capacity: 2,
       bedNum: 1,
       bathNum: 1,
       price: 850,
@@ -55,8 +114,7 @@ export class RoomService {
     {
       id: '3',
       name: 'Bush Mango',
-      acapacity: 4,
-      bcapacity: 2,
+      capacity: 4,
       bedNum: 2,
       bathNum: 1,
       price: 1000,
@@ -71,8 +129,7 @@ export class RoomService {
     {
       id: '4',
       name: 'The Plum',
-      acapacity: 8,
-      bcapacity: 1,
+      capacity: 8,
       bedNum: 1,
       bathNum: 1,
       price: 1400,

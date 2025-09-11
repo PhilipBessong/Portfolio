@@ -37,12 +37,10 @@ booking = {
       this.selectedRoom = newRoom;
 
       // Optional: Clamp values if they exceed the new limits
-      if (this.booking.adults > newRoom.acapacity) {
-        this.booking.adults = newRoom.acapacity;
+      if (this.booking.adults > newRoom.capacity) {
+        this.booking.adults = newRoom.capacity;
       }
-      if (this.booking.children > newRoom.bcapacity) {
-        this.booking.children = newRoom.bcapacity;
-      }
+    
     }
   }
 

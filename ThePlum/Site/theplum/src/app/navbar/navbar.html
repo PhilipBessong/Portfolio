@@ -136,7 +136,7 @@
           <input
             type="number"
             min="1"
-            [max]="selectedRoom?.acapacity || 10"
+            [max]="selectedRoom?.capacity || 10"
             class="form-control"
             id="adults"
             required
@@ -144,27 +144,10 @@
             name="adults"
           />
           <small class="form-text text-light">
-            Max: {{ selectedRoom?.acapacity }}
+            Max: {{ selectedRoom?.capacity }}
           </small>
         </div>
 
-        <div class="col-12 col-md-6">
-          <label for="children" class="form-label" style="color: aliceblue"
-            >Children</label
-          >
-          <input
-            type="number"
-            min="0"
-            [max]="selectedRoom?.bcapacity || 10"
-            class="form-control"
-            id="children"
-            [(ngModel)]="booking.children"
-            name="children"
-          />
-          <small class="form-text text-light">
-            Max: {{ selectedRoom?.bcapacity }}
-          </small>
-        </div>
       </div>
 
       <!-- First & last Name -->
