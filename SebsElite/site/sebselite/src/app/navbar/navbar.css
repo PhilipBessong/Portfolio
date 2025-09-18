@@ -5,12 +5,12 @@
 }
 .navbar a {
   color: #ffffff;
-  font-family: "Arial", sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: larger;
 }
 .navbar a:hover {
   color: #d80000;
-  font-family: "Arial", sans-serif;
+  font-family: "Oswald", sans-serif;
   font-size: larger;
 }
 .nav-item {
@@ -20,10 +20,9 @@
   border: 2px solid transparent; /* Add this line */
   border-radius: 20px;
   transition: box-shadow 0.1s ease-in-out, border-color 0.1s;
-padding: 3px 28px; /* Increased padding for more space */
+  padding: 3px 28px; /* Increased padding for more space */
 }
 .nav-link:hover {
-
   border: 2px solid transparent; /* Keep border width same */
   border-radius: 20px;
   box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f, 0 0 36px #ff6f6f; /* neon glow */

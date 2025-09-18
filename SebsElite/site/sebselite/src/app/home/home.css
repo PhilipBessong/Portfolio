@@ -1,3 +1,23 @@
+.hTitle {
+  text-align:center;
+  margin-bottom: 20px;
+  font-size: 7.5rem;
+  color: #fff;
+ 
+
+}
+h1{
+  font-family: 'Oswald', sans-serif;
+}
+h2{
+  font-family: 'Oswald', sans-serif;
+}
+.subtitle {
+    font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  color: #d80000;
+  margin-bottom: 30px;
+}
 .hero-section {
   min-height: 80vh;
   background: #000;
@@ -14,9 +34,9 @@
 }
 
 .hero-overlay {
- width: 100%;
-  max-width: 100%;   /* Match image width */
-  padding: 0 15px;
+ width: 90%;
+  max-width: 90%;   /* Match image width */
+  padding: 10px 15px;
   background: rgba(0,0,0,0.55);
   border-radius: 20px;
   position: absolute;
@@ -29,10 +49,46 @@
   border-radius: 25px;
   padding: 12px 36px;
   font-size: 1.2rem;
+  font-family: 'oswald', sans-serif;
   box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
   transition: box-shadow 0.2s;
 }
 
 .hero-btn:hover {
   box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
+}
+
+.banner-section {
+
+  border-radius: 20px;
+  margin: 40px 20px;
+  overflow: hidden;
+}
+
+.banner-content {
+  padding: 40px 10px;
+}
+
+.banner-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #d80000;
+  letter-spacing: 1px;
+}
+
+.about-section {
+  padding: 60px 20px;
+  font-family: 'Oswald', sans-serif;
+  color:whitesmoke;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  margin: 40px 20px;
+}
+.about-img {
+  border-radius: 50% !important;
+  object-fit: cover;
+  width: 500px;
+  height: 500px;
+    box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33; 
 }
