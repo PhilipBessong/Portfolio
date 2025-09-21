@@ -33,9 +33,9 @@ status?: string; // optional: available, occupied, maintenance
 
 // booking.model.ts
 export interface Booking {
-id: string; // uuid
+id?: string; // uuid
 room_id: string;
-user_id: string;
+user_id?: string;
 start_date: string; // ISO date string
 end_date: string; // ISO date string
 total_price: number;

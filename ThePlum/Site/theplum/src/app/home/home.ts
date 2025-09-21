@@ -13,6 +13,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class Home implements OnInit {
    showBookNow = false;
   rooms: Room[] = [];
+  selectedRoom: Room | undefined;
   roomImages: string[] = [];
   carouselItems: { image: string; name: string; id: string }[] = [];
 
@@ -64,6 +65,18 @@ export class Home implements OnInit {
     children: 0,
   };
 
+    ngDoCheck() {
+    const newRoom = this.roomService.getRoomById(this.booking.roomId);
+    if (newRoom && newRoom !== this.selectedRoom) {
+      this.selectedRoom = newRoom;
+
+      // Optional: Clamp values if they exceed the new limits
+      if (this.booking.adults > newRoom.capacity) {
+        this.booking.adults = newRoom.capacity;
+      }
+    }
+  }
+  
   submitBooking() {
     const selectedRoom = this.roomService.getRoomById(this.booking.roomId);
     console.log('Booking submitted:', {
