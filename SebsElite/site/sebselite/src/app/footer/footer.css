@@ -1,0 +1,24 @@
+.footer-section {
+  background: #111;
+  color: #ccc;
+    font-family: 'Oswald', sans-serif;
+
+  .footer-link {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .footer-link:hover {
+    color: #d80000;
+  }
+
+  .social-links a {
+    color: #ccc;
+    transition: 0.3s;
+  }
+
+  .social-links a:hover {
+    color: #d80000;
+  }
+}

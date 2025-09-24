@@ -6,7 +6,9 @@ export interface Membership {
   description: string;
   price: number;
   duration: string; // e.g., '1 month', '12 months'
+    plan_img: string;
   is_recurring: boolean;
+  
 }
 
 @Injectable({
@@ -24,6 +26,7 @@ export class MembershipService {
     description: 'Access to all classes and facilities for one month.',
     price: 50,
     duration: '1 month',
+    plan_img: 'assets/monthly-min.png',
     is_recurring: true,
   },
   {
@@ -32,6 +35,7 @@ export class MembershipService {
     description: 'Full access for a year with a discounted rate.',
     price: 500,
     duration: '12 months',
+    plan_img: 'assets/annual-min.png',
     is_recurring: true,
   },
   {
@@ -40,6 +44,7 @@ export class MembershipService {
     description: 'Single day access to all facilities.',
     price: 10,
     duration: '1 day',
+    plan_img: 'assets/onetimepass-min.png',
     is_recurring: false,
   }
     ];

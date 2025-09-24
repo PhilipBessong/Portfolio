@@ -9,7 +9,6 @@ import { Membership, MembershipService } from '../services/membership';
 })
 export class Home {
   membershipPlans: Membership[] = [];
-
   constructor(private membershipService: MembershipService) {
     this.membershipPlans = this.membershipService.getPlans();
   }
