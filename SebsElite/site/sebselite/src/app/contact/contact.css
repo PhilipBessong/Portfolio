@@ -1,0 +1,46 @@
+.contact-section {
+  background: #111;
+  color: #ccc;
+
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(216, 0, 0, 0.2) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .contact-form .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+
+  .contact-form .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #d80000;
+    box-shadow: 0 0 10px rgba(216, 0, 0, 0.6);
+    color: #fff;
+  }
+
+  .contact-info ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .social-links a {
+    color: #ccc;
+    transition: 0.3s;
+  }
+
+  .social-links a:hover {
+    color: #d80000;
+  }
+}
