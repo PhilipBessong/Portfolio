@@ -63,3 +63,42 @@ h2{
 .hero-btn:hover {
   box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
 }
+
+.about-section {
+  color: #fff;
+  
+    .lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+  }
+
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(216, 0, 0, 0.25) 0%,   /* subtle red tint */
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .story-block {
+    column-count: 2;     
+    column-gap: 2rem;    
+    text-align: justify; 
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #fff; /* white text for better contrast */
+  }
+
+  .about-img {
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+}
+
