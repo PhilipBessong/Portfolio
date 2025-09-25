@@ -44,3 +44,15 @@
     color: #d80000;
   }
 }
+.hero-btn {
+  border-radius: 25px;
+  padding: 12px 36px;
+  font-size: 1.2rem;
+  font-family: 'oswald', sans-serif;
+  box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
+  transition: box-shadow 0.2s;
+}
+
+.hero-btn:hover {
+  box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
+}
