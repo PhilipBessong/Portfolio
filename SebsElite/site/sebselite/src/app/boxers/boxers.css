@@ -70,3 +70,12 @@ h2{
 .hero-btn:hover {
   box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
 }
+
+.boxers-section{
+  padding: 60px 20px;
+  font-family: 'Oswald', sans-serif;
+  color:whitesmoke;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  margin: 40px 20px;
+}
