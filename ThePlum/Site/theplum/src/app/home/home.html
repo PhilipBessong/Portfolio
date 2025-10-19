@@ -159,14 +159,18 @@
           Have questions or need assistance? Reach out to us and we'll get back
           to you as soon as possible.
         </p>
-         <!-- Success & Error Messages -->
-          <div *ngIf="successMessage" class="alert success">
-            Message sent successfully!
-          </div>
-          <div *ngIf="errorMessage" class="alert error">
-            Failed to send message. Please try again.
-          </div>
-        <form [formGroup]="contactForm"
+        <!-- ✅ Success & Error Messages -->
+        <div *ngIf="successMessage" class="alert success">
+          Message sent successfully!
+        </div>
+        <div *ngIf="errorMessage" class="alert error">
+          Failed to send message. Please try again.
+        </div>
+
+        <!-- ✅ Reactive Form Only -->
+        <form
+          *ngIf="contactForm"
+          [formGroup]="contactForm"
           (ngSubmit)="onSubmit()"
           class="mt-4"
           style="
@@ -181,8 +185,7 @@
               type="text"
               id="name"
               class="form-control"
-              name="name"
-              ngModel
+              formControlName="name"
               required
             />
           </div>
@@ -193,10 +196,24 @@
               type="email"
               id="email"
               class="form-control"
-              name="email"
-              ngModel
+              formControlName="email"
               required
             />
+          </div>
+          <!-- Phone -->
+          <div class="form-group mb-3">
+            <label for="phone" style="color: white">Contact Number</label>
+            <input
+              class="form-control"
+              id="phone"
+              type="text"
+              formControlName="phone"
+            />
+            <div class="error" *ngIf="f['phone'].touched && f['phone'].errors">
+              <small *ngIf="f['phone'].errors['pattern']"
+                >Invalid phone format.</small
+              >
+            </div>
           </div>
 
           <div class="form-group mb-3">
@@ -205,8 +222,7 @@
               type="text"
               id="subject"
               class="form-control"
-              name="subject"
-              ngModel
+              formControlName="subject"
             />
           </div>
 
@@ -216,8 +232,7 @@
               id="message"
               rows="4"
               class="form-control"
-              name="message"
-              ngModel
+              formControlName="message"
               required
             ></textarea>
           </div>
@@ -226,12 +241,13 @@
             <button
               type="submit"
               class="btn bookbtns"
-              [disabled]="!contactForm.valid"
+              [disabled]="submitting || contactForm.invalid"
             >
-              Send
+              {{ buttonText }}
             </button>
           </div>
         </form>
+
         <br />
       </div>
     </div>
@@ -276,9 +292,9 @@
       class="popup-backdrop"
       *ngIf="showBookNow"
       (click)="closeBookNow()"
-    >
-  </div>
-    <div class="glass popup-container"
+    ></div>
+    <div
+      class="glass popup-container"
       *ngIf="showBookNow"
       (click)="$event.stopPropagation()"
     >

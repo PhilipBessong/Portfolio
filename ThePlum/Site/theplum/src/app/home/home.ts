@@ -3,15 +3,22 @@ import { Router, RouterModule } from '@angular/router';
 import emailjs from '@emailjs/browser';
 import { RoomService, Room } from '../service/room-service';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm,FormBuilder, FormGroup, Validators,ReactiveFormsModule } from '@angular/forms';
+import {
+  FormsModule,
+  NgForm,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
   templateUrl: './home.html',
-  styleUrls: ['./home.css']
+  styleUrls: ['./home.css'],
 })
 export class Home implements OnInit {
-   showBookNow = false;
+  showBookNow = false;
   rooms: Room[] = [];
   selectedRoom: Room | undefined;
   roomImages: string[] = [];
@@ -23,24 +30,40 @@ export class Home implements OnInit {
   successMessage = false;
   errorMessage = false;
 
-  constructor(private router: Router, private roomService: RoomService,private fb: FormBuilder) {}
+  constructor(
+    private router: Router,
+    private roomService: RoomService,
+    private fb: FormBuilder
+  ) {}
 
+   get f() {
+    return this.contactForm.controls;
+  }
   ngOnInit(): void {
     this.rooms = this.roomService.getRooms();
-    this.roomImages = this.rooms.flatMap(room => room.images);
-    this.carouselItems = this.rooms.map(room => ({
+    this.roomImages = this.rooms.flatMap((room) => room.images);
+    this.carouselItems = this.rooms.map((room) => ({
       image: room.images[0],
       name: room.name,
-      id: room.id
+      id: room.id,
     }));
 
-      this.contactForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.maxLength(50)]],
+    this.contactForm = this.fb.group({
       name: ['', [Validators.maxLength(50)]],
-      email: ['', [Validators.required, Validators.email, Validators.maxLength(254)]],
-      phone: ['', [Validators.pattern(/^[+0-9\s\-()]{7,20}$/)]],
+      email: [
+        '',
+        [Validators.required, Validators.email, Validators.maxLength(254)],
+      ],
+        phone: ['', [Validators.pattern(/^[+0-9\s\-()]{7,20}$/)]],
       subject: ['', [Validators.required, Validators.maxLength(120)]],
-      message: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(2000)]],
+      message: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(2000),
+        ],
+      ],
       roomId: [null],
       newsletter: [true],
     });
@@ -57,7 +80,7 @@ export class Home implements OnInit {
   navigateToContact() {
     this.router.navigate(['/contact']);
   }
- onSubmit() {
+  onSubmit() {
     this.contactForm.markAllAsTouched();
 
     if (this.contactForm.invalid) {
@@ -81,7 +104,8 @@ export class Home implements OnInit {
       phone: this.contactForm.value.phone || 'N/A',
     };
 
-    emailjs.send(serviceID, templateID, formData, publicKey)
+    emailjs
+      .send(serviceID, templateID, formData, publicKey)
       .then((response: any) => {
         console.log('SUCCESS!', response.status, response.text);
         this.successMessage = true;
@@ -89,11 +113,11 @@ export class Home implements OnInit {
         this.contactForm.reset();
         this.buttonText = 'Sent';
 
-       // ✅ Hide success message after 5 seconds
-      setTimeout(() => {
-        this.successMessage = false;
-        this.buttonText = 'Send Message';
-      }, 5000);
+        // ✅ Hide success message after 5 seconds
+        setTimeout(() => {
+          this.successMessage = false;
+          this.buttonText = 'Send Message';
+        }, 5000);
       })
       .catch((error: any) => {
         console.error('FAILED...', error);
@@ -101,10 +125,10 @@ export class Home implements OnInit {
         this.submitting = false;
         this.buttonText = 'Send Message';
 
-          // ✅ Hide error message after 5 seconds
-      setTimeout(() => {
-        this.errorMessage = false;
-      }, 5000);
+        // ✅ Hide error message after 5 seconds
+        setTimeout(() => {
+          this.errorMessage = false;
+        }, 5000);
       });
   }
   onReset(form: NgForm) {
@@ -123,7 +147,7 @@ export class Home implements OnInit {
     children: 0,
   };
 
-    ngDoCheck() {
+  ngDoCheck() {
     const newRoom = this.roomService.getRoomById(this.booking.roomId);
     if (newRoom && newRoom !== this.selectedRoom) {
       this.selectedRoom = newRoom;
@@ -134,7 +158,7 @@ export class Home implements OnInit {
       }
     }
   }
-  
+
   submitBooking() {
     const selectedRoom = this.roomService.getRoomById(this.booking.roomId);
     console.log('Booking submitted:', {
@@ -144,7 +168,7 @@ export class Home implements OnInit {
     // You can send this to Firebase or a backend here.
     alert(`Booking submitted for ${selectedRoom?.name}`);
   }
-  
+
   openBookNow() {
     this.showBookNow = true;
   }
