@@ -1,30 +1,37 @@
 <div class="row justify-content-center">
   <div class="container-fluid">
     <div class="container">
-         <h2 style="color: aliceblue;">Contact Us</h2>
+      <h2 style="color: aliceblue">Contact Us</h2>
       <div class="row">
         <div class="col">
-         
-          <p class="muted" style="color: aliceblue;">
+          <p class="muted" style="color: aliceblue">
             We’re happy to help — reach out using the form or via the contact
             details below.
           </p>
 
-          <h3 style="color: aliceblue;">Office hours</h3>
-          <p class="muted"  style="color: aliceblue;">Mon – Sun: 08:00 – 20:00</p>
+          <h3 style="color: aliceblue">Office hours</h3>
+          <p class="muted" style="color: aliceblue">Mon – Sun: 08:00 – 20:00</p>
           <dl>
-            <dt  style="color: aliceblue;">Phone</dt>
-            <dd><a style="color: aliceblue;" href="tel:++2763504926">+27 63 150 4926</a></dd>
+            <dt style="color: aliceblue">Phone</dt>
+            <dd>
+              <a style="color: aliceblue" href="tel:++2763504926"
+                >+27 63 150 4926</a
+              >
+            </dd>
 
-            <dt  style="color: aliceblue;">Email</dt>
-            <dd  >
-              <a style="color: aliceblue;" href="mailto:bessongandbessong@gmail.com"
+            <dt style="color: aliceblue">Email</dt>
+            <dd>
+              <a
+                style="color: aliceblue"
+                href="mailto:bessongandbessong@gmail.com"
                 >bessongandbessong&#64;gmail.com</a
               >
             </dd>
 
-            <dt  style="color: aliceblue;">Address</dt>
-            <dd  style="color: aliceblue;">41B Stubbs Street, Louis Trichardt, 0920, South Africa</dd>
+            <dt style="color: aliceblue">Address</dt>
+            <dd style="color: aliceblue">
+              41B Stubbs Street, Louis Trichardt, 0920, South Africa
+            </dd>
           </dl>
           <div
             class="map-container"
@@ -44,13 +51,17 @@
         <div class="col">
           <!-- Success & Error Messages -->
           <div *ngIf="successMessage" class="alert success">
-            {{ successMessage }}
+            Message sent successfully!
           </div>
-          <div *ngIf="errorMessage" class="alert error">{{ errorMessage }}</div>
+          <div *ngIf="errorMessage" class="alert error">
+            Failed to send message. Please try again.
+          </div>
 
           <form
+            *ngIf="contactForm"
             [formGroup]="contactForm"
             (ngSubmit)="onSubmit()"
+            novalidate
             style="
               background-color: rgba(0, 0, 0, 0.7);
               border-radius: 20px;
@@ -85,9 +96,9 @@
               <label for="lastName">Last Name</label>
               <input
                 class="form-control"
-                id="lastName"
+                id="name"
                 type="text"
-                formControlName="lastName"
+                formControlName="name"
               />
             </div>
 
@@ -194,7 +205,7 @@
                 type="submit"
                 [disabled]="submitting || contactForm.invalid"
               >
-                {{ submitting ? 'Sending...' : 'Send Message' }}
+                {{ buttonText }}
               </button>
             </div>
           </form>

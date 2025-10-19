@@ -159,9 +159,15 @@
           Have questions or need assistance? Reach out to us and we'll get back
           to you as soon as possible.
         </p>
-
-        <form #contactForm="ngForm"
-          (ngSubmit)="onSubmit(contactForm)"
+         <!-- Success & Error Messages -->
+          <div *ngIf="successMessage" class="alert success">
+            Message sent successfully!
+          </div>
+          <div *ngIf="errorMessage" class="alert error">
+            Failed to send message. Please try again.
+          </div>
+        <form [formGroup]="contactForm"
+          (ngSubmit)="onSubmit()"
           class="mt-4"
           style="
             background-color: rgba(0, 0, 0, 0.7);
