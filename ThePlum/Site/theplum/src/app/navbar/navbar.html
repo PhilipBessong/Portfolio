@@ -129,26 +129,40 @@
 
       <!-- Adults & Children -->
       <div class="row mb-3">
-       
-          <label for="guests" class="form-label" style="color: aliceblue"
-            >Guests</label
-          >
-          <input
-            type="number"
-            min="1"
-            [max]="selectedRoom?.capacity || 10"
-            class="form-control"
-            id="adults"
-            required
-            [(ngModel)]="booking.adults"
-            name="adults"
-          />
-          <small class="form-text text-light">
-            Max: {{ selectedRoom?.capacity }}
-          </small>
-        
-
-      </div>
+            <div class="col-12 col-md-6">
+              <label for="adults" class="form-label" style="color: aliceblue"
+                >Adults</label
+              >
+              <input
+                type="number"
+                min="1"
+                [max]="selectedRoom?.capacity || 10"
+                class="form-control"
+                id="adults"
+                required
+                [(ngModel)]="booking.adults"
+                name="adults"
+              />
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="children" class="form-label" style="color: aliceblue"
+                >Children</label
+              >
+              <input
+                type="number"
+                min="0"
+                [max]="selectedRoom?.capacity || 10"
+                class="form-control"
+                id="children"
+                required
+                [(ngModel)]="booking.children"
+                name="children"
+              />
+              <small class="form-text text-light">
+                Max: {{ selectedRoom?.capacity }}
+              </small>
+            </div>
+          </div>
 
       <!-- First & last Name -->
       <div class="row mb-3">

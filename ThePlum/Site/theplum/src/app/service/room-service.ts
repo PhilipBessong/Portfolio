@@ -6,15 +6,6 @@ import {
 import { BookNow } from '../book-now/book-now';
 import { Observable } from 'rxjs';
 
-// user.model.ts
-export interface User {
-id: string; // uuid
-first_name: string;
-last_name: string;
-email: string;
-phone: string;
-created_at: Date;
-}
 
 
 // room.model.ts
@@ -35,7 +26,13 @@ status?: string; // optional: available, occupied, maintenance
 export interface Booking {
 id?: string; // uuid
 room_id: string;
-user_id?: string;
+first_name: string;
+last_name: string;
+email: string;
+phone: string;
+adult_guests: number;
+child_guests: number;
+total_guests: number;
 start_date: string; // ISO date string
 end_date: string; // ISO date string
 total_price: number;

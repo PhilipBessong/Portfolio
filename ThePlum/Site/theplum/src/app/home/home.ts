@@ -28,11 +28,9 @@ export class Home implements OnInit {
       id: room.id
     }));
   }
-  navigateToRoomDetails(roomId: string) {
-    this.router.navigate(['/room-details', roomId]);
-  }
+
   navigateToRooms() {
-    this.router.navigate(['/rooms']);
+    this.router.navigate(['/accommodations']);
   }
 
   navigateToAbout() {

@@ -51,7 +51,13 @@ export class Navbar {
     }
     const newBooking: Booking = {
       room_id: selectedRoom.id,
-      user_id: this.booking.email, // or actual logged-in user id if available
+      first_name: this.booking.fName,
+      last_name: this.booking.lName,
+      email: this.booking.email,
+      phone: this.booking.phone,
+      adult_guests: this.booking.adults,
+      child_guests: this.booking.children,
+      total_guests: this.booking.adults + this.booking.children,
       start_date: this.booking.checkin,
       end_date: this.booking.checkout,
       total_price: this.calculateTotalPrice(selectedRoom),
