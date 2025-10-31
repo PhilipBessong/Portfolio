@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule,} from '@angular/common';
 import { Membership, MembershipService } from '../services/membership';
 @Component({
   selector: 'app-home',
@@ -12,5 +12,10 @@ export class Home {
   constructor(private membershipService: MembershipService) {
     this.membershipPlans = this.membershipService.getPlans();
   }
+
+  toMemberships() {
+    // Navigate to the membership plans section of the site
+  }
+
 
 }

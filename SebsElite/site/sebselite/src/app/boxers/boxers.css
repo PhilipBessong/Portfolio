@@ -3,7 +3,7 @@
   margin-bottom: 20px;
   font-size: 7.5rem;
   color: #fff;
- 
+
 
 }
 h1{
@@ -78,4 +78,16 @@ h2{
   font-size: 1.3rem;
   border-radius: 20px;
   margin: 40px 20px;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.1); /* transparent grey/white */
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff; /* Makes text visible on dark/transparent bg */
+
+}
+i{
+  color: #d80000;
 }

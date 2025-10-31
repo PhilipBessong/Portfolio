@@ -3,7 +3,7 @@
   margin-bottom: 20px;
   font-size: 7.5rem;
   color: #fff;
- 
+
 
 }
 h1{
@@ -48,15 +48,40 @@ h2{
 .hero-btn {
   border-radius: 25px;
   padding: 12px 36px;
+  margin: 1%;
   font-size: 1.2rem;
   font-family: 'oswald', sans-serif;
   box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
   transition: box-shadow 0.2s;
+
 }
 
 .hero-btn:hover {
   box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
 }
+.info-btn {
+  border-radius: 25px;
+  padding: 12px 36px;
+  font-size: 1.2rem;
+   margin: 1%;
+  background-color: black;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  /* Soft white gradient glow */
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.6),
+    0 0 16px rgba(255, 255, 255, 0.4),
+    0 0 32px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.info-btn:hover {
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.8),
+    0 0 24px rgba(255, 255, 255, 0.6),
+    0 0 48px rgba(255, 255, 255, 0.3);
+}
+
 
 .banner-section {
 
@@ -98,7 +123,7 @@ h2{
   object-fit: cover;
   width: 500px;
   height: 500px;
-    box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33; 
+    box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
 }
 .glass-card {
   background: rgba(255, 255, 255, 0.1); /* transparent grey/white */
@@ -107,6 +132,7 @@ h2{
     box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: #fff; /* Makes text visible on dark/transparent bg */
+
 }
 
 

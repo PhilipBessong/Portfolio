@@ -32,7 +32,7 @@
         class="col-12 col-md-6"
         *ngFor="let boxer of boxers"
       >
-        <div class="card h-100 shadow border-0">
+        <div class="card glass-card h-100 ">
           <img
             [src]="boxer.image"
             [alt]="boxer.name"
@@ -41,10 +41,13 @@
           <div class="card-body text-center">
             <h5 class="card-title fw-bold">
               {{ boxer.name }}
-              <small class="text-muted">“{{ boxer.nickname }}”</small>
+              <small *ngIf="boxer.nickname" class="text-muted">“{{ boxer.nickname }}”</small>
             </h5>
-            <p class="card-text text-muted">
-              {{ boxer.weightClass }} {{ boxer.record }}
+            <p class="card-text" style="color: #d80000;">
+              {{ boxer.weightClass }}
+            </p>
+            <p class="card-text">
+              {{ boxer.record }}
             </p>
             <div class="d-flex justify-content-center gap-3 mt-3">
               <a
@@ -70,6 +73,15 @@
                 class="text-dark fs-5"
               >
                 <i class="bi bi-twitter-x"></i>
+              </a>
+               <a
+                *ngIf="boxer.BoxRec"
+                [href]="boxer.BoxRec"
+                target="_blank"
+                class="text-dark fs-5"
+              >
+                <i class="bi bi-trophy-fill"></i>
+                <small style="color: red;"> BoxRec</small>
               </a>
             </div>
           </div>
