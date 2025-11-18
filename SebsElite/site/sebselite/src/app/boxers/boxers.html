@@ -11,10 +11,7 @@
     <div
       class="hero-overlay position-absolute top-50 start-50 translate-middle w-100 px-3"
     >
-      <h1 class="display-4 fw-bold text-white hTitle">
-        ELITE BOXING STABLE
-      </h1>
-
+      <h1 class="display-4 fw-bold text-white hTitle">ELITE BOXING STABLE</h1>
     </div>
   </div>
 </section>
@@ -23,32 +20,30 @@
 <section id="boxers" class="boxers-section py-5">
   <div class="container">
     <div class="text-center mb-5">
-    <h2 class="mb-3 section-title" style="color: #d80000">Our Boxers</h2>
-      <p class="section-subtitle">Meet the fighters of SEB’s Elite Boxing Gym</p>
+      <h2 class="mb-3 section-title" style="color: #d80000">Our Boxers</h2>
+      <p class="section-subtitle">
+        Meet the fighters of SEB’s Elite Boxing Gym
+      </p>
     </div>
 
     <div class="row g-4">
-      <div
-        class="col-12 col-md-6"
-        *ngFor="let boxer of boxers"
-      >
-        <div class="card glass-card h-100 ">
-          <img
-            [src]="boxer.image"
-            [alt]="boxer.name"
-            class="card-img-top"
-          />
+      <div class="col-12 col-md-6" *ngFor="let boxer of boxers">
+        <div class="card glass-card h-100">
+          <div class="card-img-top">
+            <img [src]="boxer.image" [alt]="boxer.name" class="card-img-top" />
+          </div>
+
           <div class="card-body text-center">
             <h5 class="card-title fw-bold">
               {{ boxer.name }}
-              <small *ngIf="boxer.nickname" class="text-muted">“{{ boxer.nickname }}”</small>
+              <small *ngIf="boxer.nickname" class="text-muted"
+                >“{{ boxer.nickname }}”</small
+              >
             </h5>
-            <p class="card-text" style="color: #d80000;">
+            <p class="card-text" style="color: #d80000">
               {{ boxer.weightClass }}
             </p>
-            <p class="card-text">
-              {{ boxer.record }}
-            </p>
+            <p class="card-text">{{ boxer.record }}</p>
             <div class="d-flex justify-content-center gap-3 mt-3">
               <a
                 *ngIf="boxer.instagram"
@@ -74,14 +69,14 @@
               >
                 <i class="bi bi-twitter-x"></i>
               </a>
-               <a
+              <a
                 *ngIf="boxer.BoxRec"
                 [href]="boxer.BoxRec"
                 target="_blank"
                 class="text-dark fs-5"
               >
                 <i class="bi bi-trophy-fill"></i>
-                <small style="color: red;"> BoxRec</small>
+                <small style="color: red"> BoxRec</small>
               </a>
             </div>
           </div>

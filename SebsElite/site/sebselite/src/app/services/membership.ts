@@ -37,7 +37,7 @@ export class MembershipService {
     description: 'Pay per session and enjoy full access to classes and facilities for the day.',
     price: 200,
     duration: '1 month',
-    plan_img: 'assets/monthly-min.png',
+    plan_img: 'assets/bas-min.png',
     is_recurring: true,
   },
   {
@@ -46,7 +46,7 @@ export class MembershipService {
     description: 'Train up to three times a week with full access to classes and facilities.',
     price: 900,
     duration: '12 months',
-    plan_img: 'assets/annual-min.png',
+    plan_img: 'assets/aa-min.png',
     is_recurring: true,
   },
   {
@@ -55,7 +55,7 @@ export class MembershipService {
     description: 'Unlimited access to all facilities and classes for one month.',
     price: 1500,
     duration: '1 month',
-    plan_img: 'assets/onetimepass-min.png',
+    plan_img: 'assets/cc-min.png',
     is_recurring: false,
   },
    {
@@ -64,7 +64,7 @@ export class MembershipService {
     description: 'Unlimited access to all facilities and classes for three months.',
     price: 4000,
     duration: '3 months',
-    plan_img: 'assets/onetimepass-min.png',
+    plan_img: 'assets/dd-min.png',
     is_recurring: false,
   },
     {
@@ -73,7 +73,7 @@ export class MembershipService {
     description: 'Full access to all facilities and classes for a whole year.',
     price: 15000,
     duration: '1 year',
-    plan_img: 'assets/onetimepass-min.png',
+    plan_img: 'assets/eeeee-min.png',
     is_recurring: false,
   }
     ];
@@ -122,7 +122,7 @@ export class MembershipService {
         twitter: '',
         BoxRec: 'https://boxrec.com/en/box-pro/1247215/',
       },
-      {
+    /* {
         name: 'Talent Moyo',
         nickname: '',
         weightClass: 'Bantamweight',
@@ -132,7 +132,7 @@ export class MembershipService {
         facebook: 'https://web.facebook.com/tman.moyo.758/',
         twitter: '',
         BoxRec: 'https://boxrec.com/en/box-pro/1159408/',
-      }
+      }*/
 
     ];
   }
