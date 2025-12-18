@@ -2,6 +2,19 @@
   background-color: #000000;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  padding: 10px 15px;
+}
+/* 📐 RESPONSIVE LOGO & GLOW */
+.nav-logo {
+  /* Min: 40px, Fluid: 8vw, Max: 60px */
+  width: clamp(40px, 8vw, 60px);
+  height: auto;
+  aspect-ratio: 1/1;
+  border: 1px solid rgba(216, 0, 0, 0.5);
+
+  /* The Red Glow to match your cards */
+  box-shadow: 0 0 10px #d80000, 0 0 20px rgba(255, 31, 31, 0.2);
+  transition: box-shadow 0.3s ease;
 }
 .navbar a {
   color: #ffffff;

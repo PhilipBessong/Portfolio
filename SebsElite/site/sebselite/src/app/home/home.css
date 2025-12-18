@@ -1,11 +1,11 @@
-.hTitle {
-  text-align:center;
-  margin-bottom: 20px;
-  font-size: 7.5rem;
-  color: #fff;
-
-
+.hTitle-main {
+  font-family: 'Oswald', sans-serif;
+  /* Min: 1.8rem, Fluid: 6vw, Max: 4rem */
+  font-size: clamp(1.8rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 10px;
 }
+
 h1{
   font-family: 'Oswald', sans-serif;
 }
@@ -13,52 +13,96 @@ h2{
   font-family: 'Oswald', sans-serif;
 }
 .subtitle {
-    font-family: 'Oswald', sans-serif;
-  font-size: 1.5rem;
+ font-family: 'Oswald', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   color: #d80000;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+
 }
 .hero-section {
-  min-height: 80vh;
+ min-height: 80vh;
   background: #000;
-  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  padding: 40px 20px;
 }
-
+.hero-content-wrapper {
+  max-width: 100%;
+  border-radius: 20px;
+  overflow: hidden; /* Clips the overlay if it tries to bleed out */
+}
 .hero-img {
   width: 100%;
+  /* This ensures the image is never too short to fit the text on mobile */
+  min-height: 450px;
+  max-height: 600px;
+  object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 0 32px #d8000044;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+ /* margin-left: auto;
+  margin-right: auto;*/
 }
 
 .hero-overlay {
- width: 90%;
-  max-width: 90%;   /* Match image width */
-  padding: 10px 15px;
-  background: rgba(0,0,0,0.55);
+position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Now stays 100% of the WRAPPER (the image) */
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dim the image for text readability */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ padding: 30px 20px;
   border-radius: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .hero-btn {
   border-radius: 25px;
-  padding: 12px 36px;
-  margin: 1%;
-  font-size: 1.2rem;
-  font-family: 'oswald', sans-serif;
+  padding: clamp(8px, 2vw, 12px) clamp(20px, 5vw, 40px);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-family: 'Oswald', sans-serif;
   box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
-  transition: box-shadow 0.2s;
 
 }
 
 .hero-btn:hover {
   box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
 }
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: 70vh;
+    padding: 10px;
+  }
+  .hero-img {
+    min-height: 500px; /* Force it taller on narrow phones */
+  }
+  .hTitle-top {
+    text-align: center; /* Center "Welcome To" on small phones */
+    width: 100%;
+  }
+  .hTitle-main {
+    font-size: 2.2rem; /* Slightly smaller font for mobile to save space */
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  .hero-btn {
+    width: 80%; /* Make button wider and easier to click on mobile */
+    padding: 15px;
+    animation: pulse-red 2s infinite;
+  }
+}
+
 .info-btn {
   border-radius: 25px;
   padding: 12px 36px;
@@ -84,53 +128,200 @@ h2{
 
 
 .banner-section {
-
+  background-color: #000;
   border-radius: 20px;
-  margin: 40px 20px;
   overflow: hidden;
+  margin: 20px 10px;
+  border: 1px solid #333;
 }
 
 .banner-content {
-  padding: 40px 10px;
+  /* Use fluid padding so it gets tighter on small screens */
+  padding: clamp(30px, 8vh, 60px) 10px;
 }
 
 .banner-title {
   font-family: 'Oswald', sans-serif;
-  font-size: 3.5rem;
+
+  /* 📐 ADJUSTED CLAMP:
+     Min: 1.3rem (Lowered from 1.8rem to prevent overflow)
+     Fluid: 8vw (Slightly faster scaling)
+     Max: 4rem
+  */
+  font-size: clamp(1.3rem, 8vw, 4rem);
+
   font-weight: bold;
   color: #d80000;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px; /* Reduced slightly for mobile fit */
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  /* 🛡️ THE OVERFLOW FIXES: */
+  overflow-wrap: break-word; /* Forces long words to wrap if they hit the edge */
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.banner-title span {
+  /* This ensures that on mobile, each phrase is a block
+     but doesn't force a width that causes scrolling */
+  max-width: 100%;
+  display: block;
+}
+
+/* Ensure the white span looks distinct */
+.banner-title .text-white {
+  color: #ffffff !important;
+}
+
+/* Tablet and Desktop: Let them sit inline again */
+@media (min-width: 768px) {
+  .banner-title span {
+    display: inline;
+  }
+  .banner-title {
+    letter-spacing: 1px;
+  }
 }
 
 .about-section {
-  padding: 60px 20px;
-  color:whitesmoke;
-  font-size: 1.3rem;
+  padding: clamp(40px, 8vh, 80px) 20px;
+  color: whitesmoke;
+  background: #000;
   border-radius: 20px;
-  margin: 40px 20px;
+  margin: 20px 10px; /* Reduced margin for mobile */
 }
-.plans-section {
-  padding: 60px 20px;
-  color:whitesmoke;
-  font-size: 1.3rem;
-  border-radius: 20px;
-  margin: 40px 20px;
-}
+
 .about-img {
+  /* 📐 Responsive Circle Logic */
+  width: 100%;
+  max-width: 400px; /* Maximum size on desktop */
+  aspect-ratio: 1 / 1; /* Keeps it a perfect circle */
   border-radius: 50% !important;
   object-fit: cover;
-  width: 500px;
-  height: 500px;
-    box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
+
+  /* Glow Effect */
+  box-shadow: 0 0 15px #d80000, 0 0 30px rgba(255, 31, 31, 0.2);
+
+  /* Ensure it looks good on very small screens */
+  margin: 0 auto;
 }
-.glass-card {
-  background: rgba(255, 255, 255, 0.1); /* transparent grey/white */
+
+.about-p {
+  /* 📐 Fluid Typography */
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #ccc; /* Slightly dimmed for better readability */
+}
+
+/* Tablet and Desktop specific tweaks */
+@media (min-width: 992px) {
+  .about-section {
+    margin: 40px auto;
+    max-width: 1100px;
+  }
+
+  .about-text-content {
+    padding-left: 30px;
+  }
+}
+
+/* Small mobile tweaks */
+@media (max-width: 576px) {
+  .about-img {
+    max-width: 280px; /* Smaller circle for small phones */
+  }
+  .about-section {
+    padding: 30px 15px;
+    margin: 10px;
+  }
+}
+/* Section Container */
+.plans-section {
+  padding: clamp(40px, 10vh, 80px) 15px;
+  background: #000;
+  color: whitesmoke;
   border-radius: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #fff; /* Makes text visible on dark/transparent bg */
-
+  margin: 20px 10px;
 }
 
+/* 📐 Fluid Typography for Headers */
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #d80000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Card Styling */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(216, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(216, 0, 0, 0.4);
+}
+
+/* Image scaling */
+.plan-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Inner Text Scaling */
+.plan-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  text-align: center;
+  margin-bottom: 15px;
+  color: #d80000;
+}
+
+.plan-description {
+  font-size: 0.95rem;
+  color: #ddd;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.plan-price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+/* Button Refinement */
+.info-btn, .hero-btn {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 1rem;
+}
+@keyframes pulse-red {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 
