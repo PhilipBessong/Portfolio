@@ -30,10 +30,14 @@ export class BookNow implements OnInit {
     children: 0,
   };
 
-  constructor(private roomService: RoomService) {}
+  constructor(private roomService: RoomService) {
+
+  }
 
   ngOnInit(): void {
-    this.rooms = this.roomService.getRooms();
+     this.roomService.getRooms().subscribe((rooms) => {
+      this.rooms = rooms;
+    });
   }
 
   submitBooking() {

@@ -1,0 +1,50 @@
+.text-orange {
+  color: #FFAB5B;
+}
+
+.text-teal {
+  color: #a0f0ed; /* Adjust to match your theme */
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-hero-img {
+  height: 500px;
+  object-fit: cover;
+}
+
+.btn-orange {
+  background-color: #FFAB5B;
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-orange:hover {
+  background-color: #e69a50;
+  transform: translateY(-2px);
+}
+
+.border-orange {
+  border: 2px solid transparent;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .detail-hero-img {
+    height: 300px;
+  }
+}

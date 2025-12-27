@@ -63,11 +63,8 @@
 
 <!-- 🔸 Book Now Popup -->
 <div class="popup-backdrop" *ngIf="showBookNow" (click)="closeBookNow()"></div>
-<div
-  class="glass popup-container"
-  *ngIf="showBookNow"
-  (click)="$event.stopPropagation()"
->
+
+<div class="glass popup-container" *ngIf="showBookNow" (click)="$event.stopPropagation()">
   <div class="popup-header">
     <h5 style="color: aliceblue">Book Now</h5>
     <button
@@ -76,13 +73,12 @@
       (click)="closeBookNow()"
     ></button>
   </div>
+
   <div class="popup-body">
     <form (ngSubmit)="submitBooking()" #bookingForm="ngForm">
-      <!-- Room Select -->
+
       <div class="mb-3">
-        <label for="roomSelect" class="form-label" style="color: aliceblue"
-          >Room</label
-        >
+        <label for="roomSelect" class="form-label" style="color: aliceblue">Room</label>
         <select
           class="form-select"
           id="roomSelect"
@@ -96,12 +92,9 @@
         </select>
       </div>
 
-      <!-- checkin checkout  -->
-      <div class="row mb-3">
-        <div class="col-12 col-md-6">
-          <label for="checkin" class="form-label" style="color: aliceblue"
-            >Check-in</label
-          >
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label for="checkin" class="form-label" style="color: aliceblue">Check-in</label>
           <input
             type="date"
             class="form-control"
@@ -112,10 +105,8 @@
           />
         </div>
 
-        <div class="col-12 col-md-6">
-          <label for="checkout" class="form-label" style="color: aliceblue"
-            >Check-out</label
-          >
+        <div class="col-6 mb-3">
+          <label for="checkout" class="form-label" style="color: aliceblue">Check-out</label>
           <input
             type="date"
             class="form-control"
@@ -127,49 +118,41 @@
         </div>
       </div>
 
-      <!-- Adults & Children -->
-      <div class="row mb-3">
-            <div class="col-12 col-md-6">
-              <label for="adults" class="form-label" style="color: aliceblue"
-                >Adults</label
-              >
-              <input
-                type="number"
-                min="1"
-                [max]="selectedRoom?.capacity || 10"
-                class="form-control"
-                id="adults"
-                required
-                [(ngModel)]="booking.adults"
-                name="adults"
-              />
-            </div>
-            <div class="col-12 col-md-6">
-              <label for="children" class="form-label" style="color: aliceblue"
-                >Children</label
-              >
-              <input
-                type="number"
-                min="0"
-                [max]="selectedRoom?.capacity || 10"
-                class="form-control"
-                id="children"
-                required
-                [(ngModel)]="booking.children"
-                name="children"
-              />
-              <small class="form-text text-light">
-                Max: {{ selectedRoom?.capacity }}
-              </small>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label for="adults" class="form-label" style="color: aliceblue">Adults</label>
+          <input
+            type="number"
+            min="1"
+            [max]="selectedRoom?.capacity || 10"
+            class="form-control"
+            id="adults"
+            required
+            [(ngModel)]="booking.adults"
+            name="adults"
+          />
+        </div>
+        <div class="col-6 mb-3">
+          <label for="children" class="form-label" style="color: aliceblue">Children</label>
+          <input
+            type="number"
+            min="0"
+            [max]="selectedRoom?.capacity || 10"
+            class="form-control"
+            id="children"
+            required
+            [(ngModel)]="booking.children"
+            name="children"
+          />
+          <small class="form-text text-light">
+            Max: {{ selectedRoom?.capacity }}
+          </small>
+        </div>
+      </div>
 
-      <!-- First & last Name -->
-      <div class="row mb-3">
-        <div class="col-12 col-md-6">
-          <label for="fName" class="form-label" style="color: aliceblue"
-            >First Name</label
-          >
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+          <label for="fName" class="form-label" style="color: aliceblue">First Name</label>
           <input
             type="text"
             class="form-control"
@@ -179,10 +162,8 @@
             name="fName"
           />
         </div>
-        <div class="col-12 col-md-6">
-          <label for="lName" class="form-label" style="color: aliceblue"
-            >Last Name</label
-          >
+        <div class="col-12 col-md-6 mb-3">
+          <label for="lName" class="form-label" style="color: aliceblue">Last Name</label>
           <input
             type="text"
             class="form-control"
@@ -194,12 +175,9 @@
         </div>
       </div>
 
-      <!-- Email & Phone-->
-      <div class="row mb-3">
-        <div class="col-12 col-md-6">
-          <label for="email" class="form-label" style="color: aliceblue"
-            >Email</label
-          >
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+          <label for="email" class="form-label" style="color: aliceblue">Email</label>
           <input
             type="email"
             class="form-control"
@@ -209,10 +187,8 @@
             name="email"
           />
         </div>
-        <div class="col-12 col-md-6">
-          <label for="phone" class="form-label" style="color: aliceblue"
-            >Phone</label
-          >
+        <div class="col-12 col-md-6 mb-3">
+          <label for="phone" class="form-label" style="color: aliceblue">Phone</label>
           <input
             type="tel"
             class="form-control"
@@ -224,10 +200,10 @@
         </div>
       </div>
 
-      <div class="popup-footer d-flex justify-content-end">
+      <div class="popup-footer d-flex justify-content-end mt-2">
         <button
           type="submit"
-          class="btn bookbtns"
+          class="btn bookbtns w-100"
           [disabled]="!bookingForm.form.valid"
         >
           Confirm Booking

@@ -1,0 +1,7 @@
+app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures the navbar stays above other content */
+  display: block; /* Custom elements need display: block for sticky to work */
+  width: 100%;
+}

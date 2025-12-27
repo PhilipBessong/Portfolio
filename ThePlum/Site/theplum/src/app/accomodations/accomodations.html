@@ -1,99 +1,77 @@
+<div class="container-fluid py-5 animate-fade-in">
+  <div class="row mb-4">
+    <div class="col-12 text-center">
+      <h1 class="display-4 fw-bold text-white mb-3">
+        Our <span class="text-orange">Accommodations</span>
+      </h1>
+        <p class="lead text-white-50 mx-auto" style="max-width: 800px">
+        Home-Away-From-Home
+      </p>
+    </div>
+  </div>
 <div class="row justify-content-center">
-  <div class="container-fluid">
-    <div class="col-12 mb-4" *ngFor="let room of rooms; let i = index">
-      <div
-        class="card room-card d-flex flex-wrap flex-md-nowrap flex-column flex-md-row mx-auto"
-      >
-        <!-- Left Side: Carousel -->
-        <div class="room-image-wrapper col-12 col-md-5 p-0">
-          <div id="carouselRoom{{ i }}" class="carousel slide">
-            <div class="carousel-inner">
-              <div
-                class="carousel-item"
-                *ngFor="let image of room.images; let j = index"
-                [ngClass]="{ active: j === 0 }"
-              >
-                <img
-                  [src]="image"
-                  class="d-block w-100 room-image"
-                  [alt]="room.name"
-                />
-              </div>
-            </div>
+    <div class="col-12 mb-5" *ngFor="let room of rooms; let i = index">
+      <div class="card room-card border-0 shadow-lg overflow-hidden">
+        <div class="row g-0">
 
-            <!-- Carousel Controls -->
-            <button
-              class="carousel-control-prev"
-              type="button"
-              [attr.data-bs-target]="'#carouselRoom' + i"
-              data-bs-slide="prev"
-            >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              [attr.data-bs-target]="'#carouselRoom' + i"
-              data-bs-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Right Side: Room Info -->
-        <div
-          class="text-white col-12 col-md-7 d-flex flex-column justify-content-center"
-          style="background-color: rgba(0, 0, 0, 0.5); padding: 2rem; flex: 1"
-        >
-          <h3 class="card-title text-center">{{ room.name }}</h3>
-          <p class="card-text text-center">
-            <span style="padding-right: 5%"
-              ><i class="fas fa-bed fa-1x"></i> {{room.bedNum}} - Bedroom</span
-            >
-            <span
-              ><i class="fas fa-bath fa-1x"></i> {{room.bedNum}} -
-              Bathroom</span
-            >
-          </p>
-          <p class="card-text text-center">
-            <span style="padding-right: 5%">
-              <i class="fas fa-user fa-1x"></i> {{ room.capacity }} - Capacity
-            </span>
-          </p>
-          <h5 class="card-text text-center">
-            <strong>Price:</strong> R{{ room.price }} per night
-          </h5>
-          <br />
-          <div class="row justify-content-between align-items-center">
-            <!-- Left Column: Amenities -->
-            <div class="col-12 col-md-6 mb-3">
-              <h5 class="card-text"><strong>Amenities:</strong></h5>
-              <ul class="amenities-list">
-                <li
-                  *ngFor="let amenity of room.amenities"
-                  style="padding-bottom: 2%"
+          <div class="col-12 col-md-5">
+            <div [id]="'carouselRoom' + i" class="carousel slide h-100" data-bs-ride="carousel">
+              <div class="carousel-inner h-100">
+                <div
+                  class="carousel-item h-100"
+                  *ngFor="let image of room.images; let j = index"
+                  [class.active]="j === 0"
                 >
-                  <i [class]="amenityIcons[amenity] || 'fas fa-check'"> </i> {{
-                  amenity }}
-                </li>
-              </ul>
-            </div>
+                  <img [src]="image" class="room-image" [alt]="room.name" />
+                </div>
+              </div>
 
-            <!-- Right Column: Buttons -->
-            <div class="col-12 col-md-5 d-flex flex-column gap-2">
-              <button class="accbtn w-100">Enquire</button>
-              <button class="accbtn w-100">Book Now</button>
+              <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselRoom' + i" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </button>
+              <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselRoom' + i" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
             </div>
           </div>
+
+          <div class="col-12 col-md-7 glass room-details-bg text-white p-4 p-lg-5 d-flex flex-column justify-content-center">
+            <h2 class="fw-bold mb-3 text-teal text-center text-md-start">{{ room.name }}</h2>
+
+            <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-4 mb-4">
+              <span><i class="fa-solid fa-bed text-orange me-2"></i>{{room.bedNum}} Bed</span>
+              <span><i class="fa-solid fa-bath text-orange me-2"></i>{{room.bedNum}} Bath</span>
+              <span><i class="fa-solid fa-users text-orange me-2"></i>{{room.capacity}} Guests</span>
+            </div>
+
+            <h4 class="mb-4">
+              <span class="text-muted fw-light">Price:</span>
+              <strong class="text-orange">R{{ room.price }}</strong> <small>/night</small>
+            </h4>
+
+            <div class="row">
+              <div class="col-12 col-sm-6 mb-4 mb-sm-0">
+                <h6 class="text-uppercase fw-bold mb-3 small">Amenities</h6>
+                <ul class="list-unstyled amenities-list">
+                  <li *ngFor="let amenity of room.amenities" class="mb-2">
+                    <i [class]="amenityIcons[amenity] || 'fa-solid fa-circle-check'" class="text-orange me-2"></i>
+                    {{ amenity }}
+                  </li>
+                </ul>
+              </div>
+
+             <div class="col-12 col-sm-6 d-flex flex-column justify-content-center gap-3">
+  <button
+    class="btn btn-outline-light rounded-pill px-4"
+    [routerLink]="['/room', room.id]">
+    View Details
+  </button>
+
+  <button class="btn btn-orange rounded-pill px-4 fw-bold">Book Now</button>
+</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -1,214 +1,228 @@
-<div class="row justify-content-center">
-  <div class="container-fluid">
-    <div class="container">
-      <h2 style="color: aliceblue">Contact Us</h2>
-      <div class="row">
-        <div class="col">
-          <p class="muted" style="color: aliceblue">
-            We’re happy to help — reach out using the form or via the contact
+<div class="container-fluid overflow-hidden">
+  <div class="row justify-content-center">
+    <div class="container py-5 animate-fade-in">
+      <div class="row mb-5 justify-content-center">
+        <div class="col-12 text-center">
+          <h1 class="display-4 fw-bold text-white mb-3">
+            Contact <span class="text-orange">Us</span>
+          </h1>
+          <p class="lead text-white-50 mx-auto" style="max-width: 800px">
+            We’re happy to help. Reach out using the form or via our contact
             details below.
           </p>
-
-          <h3 style="color: aliceblue">Office hours</h3>
-          <p class="muted" style="color: aliceblue">Mon – Sun: 08:00 – 20:00</p>
-          <dl>
-            <dt style="color: aliceblue">Phone</dt>
-            <dd>
-              <a style="color: aliceblue" href="tel:++2763504926"
-                >+27 63 150 4926</a
-              >
-            </dd>
-
-            <dt style="color: aliceblue">Email</dt>
-            <dd>
-              <a
-                style="color: aliceblue"
-                href="mailto:bessongandbessong@gmail.com"
-                >bessongandbessong&#64;gmail.com</a
-              >
-            </dd>
-
-            <dt style="color: aliceblue">Address</dt>
-            <dd style="color: aliceblue">
-              41B Stubbs Street, Louis Trichardt, 0920, South Africa
-            </dd>
-          </dl>
-          <div
-            class="map-container"
-            role="img"
-            aria-label="Map showing guesthouse location"
-          >
-            <iframe
-              src="https://www.google.com/maps?q=41B+Stubbs+Street,+Louis+Trichardt,+0920,+South+Africa&output=embed"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
-          </div>
-          <pre></pre>
         </div>
-        <div class="col">
-          <!-- Success & Error Messages -->
-          <div *ngIf="successMessage" class="alert success">
-            Message sent successfully!
-          </div>
-          <div *ngIf="errorMessage" class="alert error">
-            Failed to send message. Please try again.
-          </div>
+        <div class="row mb-4 g-4 justify-content-center">
+          <div class="col">
+            <div class="glass glass ourinfo p-4 p-md-5">
 
-          <form
-            *ngIf="contactForm"
-            [formGroup]="contactForm"
-            (ngSubmit)="onSubmit()"
-            novalidate
-            style="
-              background-color: rgba(0, 0, 0, 0.7);
-              border-radius: 20px;
-              padding: 20px;
-            "
-          >
-            <!-- First Name -->
-            <div class="form-group">
-              <label for="firstName">First Name *</label>
-              <input
-                id="firstName"
-                type="text"
-                class="form-control"
-                formControlName="firstName"
-                [class.invalid]="f['firstName'].touched && f['firstName'].invalid"
-              />
-              <div
-                class="error"
-                *ngIf="f['firstName'].touched && f['firstName'].errors"
-              >
-                <small *ngIf="f['firstName'].errors['required']"
-                  >First name is required.</small
-                >
-                <small *ngIf="f['firstName'].errors['maxlength']"
-                  >Max 50 characters allowed.</small
-                >
+              <div>
+                <h3 class="text-orange">Office Hours</h3>
+                <p class="muted" style="color: aliceblue">
+                  Mon – Sun: 08:00 – 20:00
+                </p>
+                <dl>
+                  <dt class="text-orange">Phone</dt>
+                  <dd>
+                    <a
+                      style="color: aliceblue; text-decoration: none"
+                      href="tel:++2763504926"
+                      >+27 63 150 4926</a
+                    >
+                  </dd>
+
+                  <dt class="text-orange">Email</dt>
+                  <dd>
+                    <a
+                      style="color: aliceblue; text-decoration: none"
+                      href="mailto:bessongandbessong@gmail.com"
+                      >bessongandbessong&#64;gmail.com</a
+                    >
+                  </dd>
+
+                  <dt class="text-orange">Physical Address</dt>
+                  <dd style="color: aliceblue">
+                    41B Stubbs Street, Louis Trichardt, 0920, South Africa
+                  </dd>
+                </dl>
               </div>
             </div>
-
-            <!-- Last Name -->
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input
-                class="form-control"
-                id="name"
-                type="text"
-                formControlName="name"
-              />
-            </div>
-
-            <!-- Email -->
-            <div class="form-group">
-              <label for="email">Email *</label>
-              <input
-                id="email"
-                type="email"
-                class="form-control"
-                formControlName="email"
-                [class.invalid]="f['email'].touched && f['email'].invalid"
-              />
-              <div
-                class="error"
-                *ngIf="f['email'].touched && f['email'].errors"
+            <div
+              class="map-container"
+              role="img"
+              aria-label="Map showing guesthouse location"
+            >
+              <iframe
+                src="https://www.google.com/maps?q=41B+Stubbs+Street,+Louis+Trichardt,+0920,+South+Africa&output=embed"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
               >
-                <small *ngIf="f['email'].errors['required']"
-                  >Email is required.</small
-                >
-                <small *ngIf="f['email'].errors['email']"
-                  >Invalid email address.</small
-                >
-              </div>
-            </div>
-
-            <!-- Phone -->
-            <div class="form-group">
-              <label for="phone">Phone</label>
-              <input
-                class="form-control"
-                id="phone"
-                type="text"
-                formControlName="phone"
-              />
-              <div
-                class="error"
-                *ngIf="f['phone'].touched && f['phone'].errors"
-              >
-                <small *ngIf="f['phone'].errors['pattern']"
-                  >Invalid phone format.</small
-                >
-              </div>
-            </div>
-
-            <!-- Subject -->
-            <div class="form-group">
-              <label for="subject">Subject *</label>
-              <input
-                class="form-control"
-                id="subject"
-                type="text"
-                formControlName="subject"
-                [class.invalid]="f['subject'].touched && f['subject'].invalid"
-              />
-              <div
-                class="error"
-                *ngIf="f['subject'].touched && f['subject'].errors"
-              >
-                <small *ngIf="f['subject'].errors['required']"
-                  >Subject is required.</small
-                >
-              </div>
-            </div>
-
-            <!-- Message -->
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea
-                id="message"
-                rows="5"
-                class="form-control"
-                formControlName="message"
-                [class.invalid]="f['message'].touched && f['message'].invalid"
-              ></textarea>
-              <div
-                class="error"
-                *ngIf="f['message'].touched && f['message'].errors"
-              >
-                <small *ngIf="f['message'].errors['required']"
-                  >Message is required.</small
-                >
-                <small *ngIf="f['message'].errors['minlength']"
-                  >Message too short.</small
-                >
-              </div>
-            </div>
-
-            <!-- Optional Room Dropdown -->
-            <div class="form-group" *ngIf="rooms.length > 0">
-              <label for="roomId">Select Room (optional)</label>
-              <select id="roomId" formControlName="roomId">
-                <option value="">-- No Room Selected --</option>
-                <option *ngFor="let room of rooms" [value]="room.id">
-                  {{ room.name }} ({{ room.capacity }} guests)
-                </option>
-              </select>
+              </iframe>
             </div>
             <pre></pre>
-            <!-- Submit -->
-            <div class="d-flex justify-content-center">
-              <button
-                class="btn bookbtns"
-                type="submit"
-                [disabled]="submitting || contactForm.invalid"
-              >
-                {{ buttonText }}
-              </button>
+          </div>
+          <div class="col">
+            <!-- Success & Error Messages -->
+            <div *ngIf="successMessage" class="alert success">
+              Message sent successfully!
             </div>
-          </form>
+            <div *ngIf="errorMessage" class="alert error">
+              Failed to send message. Please try again.
+            </div>
+
+            <form
+              *ngIf="contactForm"
+              [formGroup]="contactForm"
+              (ngSubmit)="onSubmit()"
+              novalidate
+              style="
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 20px;
+                padding: 20px;
+              "
+            >
+              <!-- First Name -->
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input
+                  id="firstName"
+                  type="text"
+                  class="form-control"
+                  formControlName="firstName"
+                  [class.invalid]="f['firstName'].touched && f['firstName'].invalid"
+                />
+                <div
+                  class="error"
+                  *ngIf="f['firstName'].touched && f['firstName'].errors"
+                >
+                  <small *ngIf="f['firstName'].errors['required']"
+                    >First name is required.</small
+                  >
+                  <small *ngIf="f['firstName'].errors['maxlength']"
+                    >Max 50 characters allowed.</small
+                  >
+                </div>
+              </div>
+
+              <!-- Last Name -->
+              <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                  class="form-control"
+                  id="name"
+                  type="text"
+                  formControlName="name"
+                />
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input
+                  id="email"
+                  type="email"
+                  class="form-control"
+                  formControlName="email"
+                  [class.invalid]="f['email'].touched && f['email'].invalid"
+                />
+                <div
+                  class="error"
+                  *ngIf="f['email'].touched && f['email'].errors"
+                >
+                  <small *ngIf="f['email'].errors['required']"
+                    >Email is required.</small
+                  >
+                  <small *ngIf="f['email'].errors['email']"
+                    >Invalid email address.</small
+                  >
+                </div>
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input
+                  class="form-control"
+                  id="phone"
+                  type="text"
+                  formControlName="phone"
+                />
+                <div
+                  class="error"
+                  *ngIf="f['phone'].touched && f['phone'].errors"
+                >
+                  <small *ngIf="f['phone'].errors['pattern']"
+                    >Invalid phone format.</small
+                  >
+                </div>
+              </div>
+
+              <!-- Subject -->
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input
+                  class="form-control"
+                  id="subject"
+                  type="text"
+                  formControlName="subject"
+                  [class.invalid]="f['subject'].touched && f['subject'].invalid"
+                />
+                <div
+                  class="error"
+                  *ngIf="f['subject'].touched && f['subject'].errors"
+                >
+                  <small *ngIf="f['subject'].errors['required']"
+                    >Subject is required.</small
+                  >
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea
+                  id="message"
+                  rows="5"
+                  class="form-control"
+                  formControlName="message"
+                  [class.invalid]="f['message'].touched && f['message'].invalid"
+                ></textarea>
+                <div
+                  class="error"
+                  *ngIf="f['message'].touched && f['message'].errors"
+                >
+                  <small *ngIf="f['message'].errors['required']"
+                    >Message is required.</small
+                  >
+                  <small *ngIf="f['message'].errors['minlength']"
+                    >Message too short.</small
+                  >
+                </div>
+              </div>
+
+              <!-- Optional Room Dropdown -->
+              <div class="form-group" *ngIf="rooms.length > 0">
+                <label for="roomId">Select Room (optional)</label>
+                <select id="roomId" formControlName="roomId">
+                  <option value="">-- No Room Selected --</option>
+                  <option *ngFor="let room of rooms" [value]="room.id">
+                    {{ room.name }} ({{ room.capacity }} guests)
+                  </option>
+                </select>
+              </div>
+              <pre></pre>
+              <!-- Submit -->
+              <div class="d-flex justify-content-center">
+                <button
+                  class="btn bookbtns"
+                  type="submit"
+                  [disabled]="submitting || contactForm.invalid"
+                >
+                  {{ buttonText }}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

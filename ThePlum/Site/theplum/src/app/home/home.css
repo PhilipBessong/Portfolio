@@ -10,9 +10,9 @@
 /* Default desktop styles — apply always */
 .hometxt {
   font-weight: 700;
-   font-size: 4vw; /* Responsive font size */
-  line-height: 1.2;
-  color: #003038;  /* desktop text color */
+   font-size: 4.5vw; /* Responsive font size */
+  line-height: 1;
+  color: #FFAB5B;  /* desktop text color */
   text-align: center;
   margin: 0;
   padding: 0;
@@ -22,8 +22,11 @@
   display: block;
  font-size: 3vw;
   font-weight: 400;
-  color: #FFAB5B; /* desktop color same as hometxt */
-   margin: 1rem 0;  /* space above and below to center visually */
+  color: aliceblue; /* desktop color same as hometxt */
+   margin: 0.5rem 0;  /* space above and below to center visually */
+}
+.text-orange {
+  color: #FFAB5B;
 }
 
 /* Responsive styles for smaller screens */

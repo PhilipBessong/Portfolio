@@ -27,7 +27,9 @@ export class Navbar {
   };
 
   constructor(private roomService: RoomService) {
-    this.rooms = this.roomService.getRooms();
+    this.roomService.getRooms().subscribe((rooms) => {
+      this.rooms = rooms;
+    });
   }
 
   // This is triggered automatically when [(ngModel)]="booking.roomId" changes

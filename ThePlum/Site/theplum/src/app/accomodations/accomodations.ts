@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Room } from '../service/room-service';
 import { CommonModule } from '@angular/common';
 import { RoomService } from '../service/room-service';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-accomodations',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './accomodations.html',
   styleUrl: './accomodations.css'
 })
@@ -21,7 +22,9 @@ export class Accomodations {
 
   constructor(private roomService: RoomService) {}
   ngOnInit(): void {
-    this.rooms = this.roomService.getRooms();
+   this.roomService.getRooms().subscribe(data => {
+      this.rooms = data;
+    });
   }
 
 }

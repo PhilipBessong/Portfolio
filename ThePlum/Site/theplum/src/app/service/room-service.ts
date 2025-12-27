@@ -4,7 +4,7 @@ import {
   EnvironmentInjector,
 } from '@angular/core';
 import { BookNow } from '../book-now/book-now';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 
 
@@ -18,6 +18,7 @@ bathNum: number;
 price: number;
 amenities: string[];
 images: string[];
+ description?: string;
 status?: string; // optional: available, occupied, maintenance
 }
 
@@ -74,6 +75,7 @@ export interface Rooms {
   price: number;
   amenities: string[];
   images: string[];
+  description?: string;
   status?: string; // Optional property for room status
 }
 export interface ContactPayload {
@@ -97,7 +99,7 @@ export class RoomService {
     {
       id: '1',
       name: 'The Affectionate One',
-      capacity: 1,
+      capacity: 2,
       bedNum: 1,
       bathNum: 1,
       price: 800,
@@ -108,22 +110,24 @@ export class RoomService {
         'Solar Power',
       ],
       images: ['/assets/AffShot.jpg', '/assets/croom.jpg'],
+      description: 'The Affectionate One is a 17 m² double room designed for two adults. It is specifically marketed as an ideal space for business travelers due to its dedicated workspace and solar-powered infrastructure.'
     },
     {
       id: '2',
-      name: 'The Affectionate Two',
+      name: 'The Affectionate One 2',
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
       price: 850,
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: ['/assets/AffShot2.jpg'],
+      description:'This unit is a cozy, 18 m² double room (slightly larger than its sister unit) with a private entrance. It is a single-level space located on the ground floor, designed for a comfortable stay with high-quality amenities.'
     },
     {
       id: '3',
       name: 'Bush Mango',
-      capacity: 4,
-      bedNum: 2,
+      capacity: 2,
+      bedNum: 1,
       bathNum: 1,
       price: 1000,
       amenities: [
@@ -133,13 +137,14 @@ export class RoomService {
         'Barbeque Facilities',
       ],
       images: ['/assets/BushShot2.jpg', '/assets/BushShot.jpg'],
+      description: 'Bush Mango is a modern, 40 m² one-bedroom apartment designed for up to two adults and a baby. It is highly rated for its comfort and is particularly well-suited for business travelers due to its high-speed internet and solar backup power.'
     },
     {
       id: '4',
       name: 'The Plum',
       capacity: 8,
-      bedNum: 1,
-      bathNum: 1,
+      bedNum: 5,
+      bathNum: 2,
       price: 1400,
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: [
@@ -151,13 +156,14 @@ export class RoomService {
         '/assets/RoomShot4.jpg',
         '/assets/RoomShot5.jpg',
       ],
+      description:'This property is a spacious, single-level three-bedroom apartment designed for up to 8 guests. Perfect for large groups and family-friendly environment.'
     },
   ];
 
-  getRooms(): Room[] {
-    return this.rooms;
-  }
 
+getRooms(): Observable<Room[]> {
+    return of(this.rooms);
+  }
   getRoomById(id: string): Room | undefined {
     return this.rooms.find((room) => room.id === id);
   }
@@ -181,6 +187,6 @@ export class RoomService {
         observer.next({ success: true });
         observer.complete();
       }, 1000); // Simulate network delay
-    }); 
+    });
   }
 }

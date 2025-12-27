@@ -39,6 +39,11 @@ app-root, router-outlet, .container, .component-wrapper {
   line-height: 100%;
   letter-spacing: 0;
 }
+/* Hover state: turn pure white */
+.navbar-text-style:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4); /* Optional: subtle glow */
+}
 .navbar-bg-custom {
   background-color: #FFF2DB !important;
 }
@@ -58,5 +63,10 @@ app-root, router-outlet, .container, .component-wrapper {
   color: white;
 }
 
-
-
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

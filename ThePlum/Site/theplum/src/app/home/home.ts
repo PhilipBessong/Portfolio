@@ -11,13 +11,16 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
   imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
   templateUrl: './home.html',
   styleUrls: ['./home.css'],
 })
-export class Home implements OnInit {
+export class Home implements OnInit, OnDestroy {
   showBookNow = false;
   rooms: Room[] = [];
   selectedRoom: Room | undefined;
@@ -30,6 +33,8 @@ export class Home implements OnInit {
   successMessage = false;
   errorMessage = false;
 
+  private destroy$ = new Subject<void>();
+
   constructor(
     private router: Router,
     private roomService: RoomService,
@@ -40,13 +45,17 @@ export class Home implements OnInit {
     return this.contactForm.controls;
   }
   ngOnInit(): void {
-    this.rooms = this.roomService.getRooms();
-    this.roomImages = this.rooms.flatMap((room) => room.images);
-    this.carouselItems = this.rooms.map((room) => ({
-      image: room.images[0],
-      name: room.name,
-      id: room.id,
-    }));
+    this.roomService.getRooms()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((rooms) => {
+        this.rooms = rooms;
+        this.roomImages = this.rooms.flatMap((room) => room.images);
+        this.carouselItems = this.rooms.map((room) => ({
+          image: room.images[0],
+          name: room.name,
+          id: room.id,
+        }));
+      });
 
     this.contactForm = this.fb.group({
       name: ['', [Validators.maxLength(50)]],
@@ -180,5 +189,10 @@ export class Home implements OnInit {
   confirmBooking() {
     alert('Booking confirmed!');
     this.showBookNow = false;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -35,13 +35,26 @@ margin-left: 10px;
   left: 50%;
   transform: translate(-50%, -50%);
    background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(6px);
-  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
   padding: 1.5rem;
-  width: 90%;
-  max-width: 400px;
+  width: 95%;
+  max-width: 500px;
   z-index: 999;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  /* CRITICAL FOR MOBILE: */
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+/* Custom Scrollbar for the glass effect */
+.popup-container::-webkit-scrollbar {
+  width: 6px;
+}
+.popup-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 
 .popup-header {
@@ -83,6 +96,30 @@ margin-left: 10px;
   color: #ffffff;
    border-radius: 20px;
   border: 2px solid brown;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .popup-container {
+    padding: 1rem;
+    width: 90%;
+    top: 50%; /* Keeps it centered */
+  }
+
+  .popup-header h5 {
+    font-size: 1.1rem;
+  }
+
+  /* Make inputs slightly smaller on mobile to save space */
+  .form-control, .form-select {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Reduce margins between rows on mobile */
+  .mb-3 {
+    margin-bottom: 0.8rem !important;
+  }
 }
 
 
