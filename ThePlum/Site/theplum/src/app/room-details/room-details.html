@@ -10,6 +10,7 @@
     <div class="row g-4">
 
       <div class="col-lg-7">
+
         <div id="detailsCarousel" class="carousel slide shadow-lg rounded-3 overflow-hidden" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let img of room.images; let i = index" [class.active]="i === 0">
@@ -26,13 +27,89 @@
 
         <div class="row g-2 mt-2" *ngIf="room.images.length > 1">
           <div class="col-3" *ngFor="let thumb of room.images">
-            <img [src]="thumb" class="img-fluid rounded border-orange" style="height: 80px; object-fit: cover; width: 100%">
+            <img [src]="thumb" class="img-fluid rounded border-orange" style="height: 80px; object-fit: cover; width: 100%; cursor: pointer">
           </div>
+        </div>
+
+        <div class="row g-4 mt-4" *ngIf="room.features">
+
+          <div class="col-md-6" *ngIf="room.features.sleeping.length">
+            <div class="p-4 glass rounded h-100">
+              <h5 class="text-orange mb-3"><i class="fa-solid fa-bed me-2"></i>Sleeping & Comfort</h5>
+              <ul class="list-unstyled text-white-50">
+                <li *ngFor="let item of room.features.sleeping" class="mb-2 d-flex">
+                  <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6" *ngIf="room.features.kitchen.length">
+            <div class="p-4 glass rounded h-100">
+              <h5 class="text-orange mb-3"><i class="fa-solid fa-utensils me-2"></i>Kitchen & Dining</h5>
+              <ul class="list-unstyled text-white-50">
+                <li *ngFor="let item of room.features.kitchen" class="mb-2 d-flex">
+                  <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6" *ngIf="room.features.bathroom.length">
+            <div class="p-4 glass rounded h-100">
+              <h5 class="text-orange mb-3"><i class="fa-solid fa-shower me-2"></i>Bathroom</h5>
+              <ul class="list-unstyled text-white-50">
+                <li *ngFor="let item of room.features.bathroom" class="mb-2 d-flex">
+                  <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6" *ngIf="room.features.tech.length">
+            <div class="p-4 glass rounded h-100">
+              <h5 class="text-orange mb-3"><i class="fa-solid fa-wifi me-2"></i>Tech & Connectivity</h5>
+              <ul class="list-unstyled text-white-50">
+                <li *ngFor="let item of room.features.tech" class="mb-2 d-flex">
+                  <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+           <div class="col-md-6" *ngIf="room.features.outdoor.length">
+            <div class="p-4 glass rounded h-100">
+              <h5 class="text-orange mb-3"><i class="fa-solid fa-tree me-2"></i>Outdoor & Exterior</h5>
+              <ul class="list-unstyled text-white-50">
+                <li *ngFor="let item of room.features.outdoor" class="mb-2 d-flex">
+                  <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+           <div class="col-md-6" *ngIf="room.features.safety.length">
+            <div class="p-4 glass rounded h-100">
+              <h5 class="text-orange mb-3"><i class="fa-solid fa-shield-halved me-2"></i>Safety & Services</h5>
+              <ul class="list-unstyled text-white-50">
+                <li *ngFor="let item of room.features.safety" class="mb-2 d-flex">
+                  <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
 
       <div class="col-lg-5">
-        <div class="card glass text-white border-0 h-100 p-4 p-md-5 shadow-lg">
+        <div class="card glass text-white border-0 h-100 p-4 p-md-5 shadow-lg position-sticky" style="top: 20px; z-index: 10;">
 
           <h1 class="display-5 fw-bold text-teal mb-2">{{ room.name }}</h1>
           <p class="lead text-orange fw-bold mb-4">R{{ room.price }} <span class="text-white-50 fs-6 fw-normal">/ night</span></p>
@@ -40,17 +117,17 @@
           <hr class="border-white-50 mb-4">
 
           <div class="d-flex justify-content-between mb-4 text-center">
-            <div class="p-3 glass rounded">
+            <div class="p-3 glass rounded flex-fill me-2">
               <i class="fa-solid fa-users text-orange fs-4 mb-2"></i>
               <div class="small">Capacity</div>
               <div class="fw-bold">{{ room.capacity }}</div>
             </div>
-            <div class="p-3 glass rounded">
+            <div class="p-3 glass rounded flex-fill me-2">
               <i class="fa-solid fa-bed text-orange fs-4 mb-2"></i>
               <div class="small">Beds</div>
               <div class="fw-bold">{{ room.bedNum }}</div>
             </div>
-            <div class="p-3 glass rounded">
+            <div class="p-3 glass rounded flex-fill">
               <i class="fa-solid fa-bath text-orange fs-4 mb-2"></i>
               <div class="small">Baths</div>
               <div class="fw-bold">{{ room.bathNum }}</div>
@@ -62,7 +139,7 @@
             {{ room.description || 'Enjoy a relaxing stay in this beautifully furnished unit, designed to make you feel right at home.' }}
           </p>
 
-          <h5 class="fw-bold mb-3">Amenities</h5>
+          <h5 class="fw-bold mb-3">Key Amenities</h5>
           <div class="row mb-5">
             <div class="col-6 mb-2" *ngFor="let amenity of room.amenities">
               <i [class]="amenityIcons[amenity] || 'fa-solid fa-check'" class="text-orange me-2"></i>
