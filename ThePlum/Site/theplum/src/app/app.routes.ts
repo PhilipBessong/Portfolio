@@ -4,6 +4,7 @@ import { Accomodations } from './accomodations/accomodations';
 import { ContactComponent } from './contact/contact';
 import { About } from './about/about';
 import { RoomDetails } from './room-details/room-details';
+import { Privacypolicy } from './privacypolicy/privacypolicy';
 export const routes: Routes = [
     {path: '', component: Home},
     {path: 'home', component: Home},
@@ -11,4 +12,5 @@ export const routes: Routes = [
     {path: 'about', component: About},
     {path: 'contact', component: ContactComponent},
     { path: 'room/:id', component: RoomDetails },
+    { path: 'privacy-policy', component: Privacypolicy }
 ];
