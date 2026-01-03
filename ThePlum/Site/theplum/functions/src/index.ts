@@ -1,5 +1,5 @@
 import * as functions from "firebase-functions";
-import { google } from "googleapis";
+import {google} from "googleapis";
 import * as admin from "firebase-admin";
 
 admin.initializeApp();
