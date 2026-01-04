@@ -19,6 +19,7 @@ export interface Room {
   description?: string;
   status?: string; // optional: available, occupied, maintenance
   features?: RoomFeatures;
+  roomtype?: string; // optional: single, double, suite, apartment
 }
 export interface RoomFeatures {
   sleeping: string[]; // Beds, AC, heating, linens
@@ -93,7 +94,8 @@ export class RoomService {
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
-      price: 800,
+      price: 850,
+      roomtype: 'nocook',
       amenities: [
         'Free Wi-Fi',
         'Air Conditioning',
@@ -105,36 +107,35 @@ export class RoomService {
         'This is an exclusive, spacious, serene room; with a queen, comfortable bed for total occupancy of two. You have a writing desk, ergonomic chair, and high speed internet to support your business activities, or stay in contact with family and friends while on the move. You can follow current affairs, and business news, or just relax with the DSTV Compact bouquet. For your exclusive use, there are heat-and-eat facilities - fridge, microwave, electric kettle; with mugs, cutlery, and plates to go with. There is complimentary tea and coffee, and  prepared water.',
       features: {
         sleeping: [
-          'One large double bed with cotton linens',
+          'One queen bed with cotton linens',
           'Split-type ductless Air Conditioning',
           'Electric blankets for winter',
           'Wardrobe/closet with hangers',
-          'Garden and inner courtyard views',
+          'Garden views',
         ],
         kitchen: [
-          'No stove or oven (Mini-kitchen)',
-          'Hisense bar fridge & Microwave',
-          'Electric kettle & Coffee station',
-          'Wine glasses provided',
-          'Private BBQ (braai) facility',
+          'Dishes & cutlery for two',
+          'Hisense fridge & Microwave',
+          'Electric kettle',
+          'Wine & Drinking glasses',
         ],
         bathroom: [
           'Private en-suite bathroom',
           'Walk-in shower',
-          'Hairdryer & hot water',
+          'Hairdryer',
           'Shower gel & towels provided',
         ],
         tech: [
           'Solar Power (WiFi/TV works during load shedding)',
           'Free high-speed WiFi',
-          'Dedicated workspace with door for privacy',
-          '32-inch HDTV with DSTV/Satellite',
+          'Dedicated workspace/desk',
+          '36-inch HDTV with DSTV/Satellite',
         ],
         outdoor: [
           'Ground floor with private entrance',
-          'Private BBQ area',
+          'BBQ (Braai) stand on request',
           'Free parking on premises',
-          'Outdoor dining furniture',
+          'Outdoor seating furniture',
         ],
         safety: [
           'Exterior security cameras',
@@ -152,6 +153,7 @@ export class RoomService {
       bedNum: 1,
       bathNum: 1,
       price: 850,
+      roomtype: 'nocook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: ['/assets/AffShot2.jpg'],
       description:
@@ -165,16 +167,16 @@ export class RoomService {
           'Tiled/marble flooring',
         ],
         kitchen: [
-          'No stove or oven (Light self-catering)',
-          'Microwave & Mini-fridge',
+          'Dishes & cutlery for two',
+          'Microwave & fridge',
           'Electric kettle & Full tableware',
-          'Indoor desk doubles as dining surface',
-          'Private charcoal BBQ grill',
+          'Wine & Drinking glasses',
         ],
         bathroom: [
-          'Private bathroom',
-          'Clothes drying rack',
-          'Iron and ironing board',
+     'Private en-suite bathroom',
+          'Walk-in shower',
+          'Hairdryer',
+          'Shower gel & towels provided',
         ],
         tech: [
           'Free high-speed WiFi',
@@ -183,9 +185,9 @@ export class RoomService {
           'Socket near the bed',
         ],
         outdoor: [
-          'View of garden & inner courtyard',
+          'Garden Views',
           'Private entrance',
-          'Outdoor dining area',
+          'Outdoor seating furniture',
           'Free parking on premises',
         ],
         safety: [
@@ -203,6 +205,7 @@ export class RoomService {
       bedNum: 1,
       bathNum: 1,
       price: 1000,
+      roomtype: 'cook',
       amenities: [
         'Free Wi-Fi',
         'Air Conditioning',
@@ -220,32 +223,33 @@ export class RoomService {
           'Wardrobe & clothes rack',
         ],
         kitchen: [
-          'Well-fitted kitchenette (Stovetop, Fridge, Micro)',
-          'Toaster, Blender & Kettle',
-          'Pots, pans, oil, salt & pepper',
+          'Well-fitted kitchenette (Stovetop, Fridge, Microwave)',
+          'Toaster, Blender & Electric Kettle',
+          'Pots, pans & cooking utensils',
           'Dining area with dishes & silverware',
         ],
         bathroom: [
           'En-suite with shower',
-          'In-unit Washing Machine & Dryer',
-          'Hairdryer & toiletries provided',
+          'In-unit Washing Machine',
+          'Hairdryer',
           'Iron & ironing board',
         ],
         tech: [
           'Solar panel system (Backup power)',
           'Fast property-wide WiFi',
-          'Dedicated desk/workspace',
+          'Dedicated workspace/desk',
           'Flat-screen TV with DSTV',
           'Stationary fitness bike',
+          'Board games & Books'
         ],
         outdoor: [
           'Private entrance & patio',
           'Backyard/garden access',
-          'Private BBQ grill with utensils',
-          'Outdoor dining area',
+          'BBQ (Braai) stand on request',
+          'Outdoor seating furniture',
         ],
         safety: [
-          'Crib & High chair available',
+          'Cot & High chair available',
           'Baby bath & window guards',
           'Smoke alarm & fire extinguisher',
           'Exterior security cameras',
@@ -259,46 +263,48 @@ export class RoomService {
       bedNum: 5,
       bathNum: 2, // 2.5 baths rounded up or kept as 3
       price: 1400,
+      roomtype: 'cook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: ['/assets/Lounge.jpg', '/assets/Kitchen.jpg'],
       description:
         'The Plum is fully furnished and suitable for families and groups of up to 8 individuals sharing. With a fully equipped kitchen and barbecue facilities, guests are able to prepare their own meals, with the option of enjoying their meals in the dining area or outdoors. The host provides complimentary tea and coffee; and 5L of prepared portable water daily to guests of two or less, and 10L to groups of three or more. Children of three years and below will enjoy a cot to sleep on, and a high chair to eat and bond with parents. The copious wardrobe space allows for the storage of belongings without things getting in the way. The lounge, with sofas and satellite television, allows guests to keep abreast with national and international current affairs and business news, or just to relax with any of the drama or movie channels. Guests traveling for business have a dedicated work area with an ergonomic chair. High speed internet is available in all areas of the property.',
       features: {
         sleeping: [
-          'Bedroom 1: Queen bed + Crib',
-          'Bedroom 2: Double bed + Single bed',
-          'Bedroom 3: Double bed + Single bed',
+          'Bedroom 1: Queen bed + Cot',
+          'Bedroom 2: Double bed + 3/4 bed',
+          'Bedroom 3: Double bed + 3/4 bed',
           'Electric blankets & cotton linens',
         ],
         kitchen: [
-          'Full Kitchen (Gas Stove, Oven, Dishwasher)',
+          'Full Kitchen (Gas Stove, Dishwasher)',
           'Large Refrigerator & Microwave',
-          'Toaster, Blender & Kettle',
+          'Toaster, Blender & Electric Kettle',
           'Full set of cookware & baking sheets',
-          'Dining table with children’s dinnerware',
+          'Dining area with children’s dinnerware',
         ],
         bathroom: [
-          '2.5 Bathrooms (Master Ensuite + Shared + Guest WC)',
-          'Bathtub & Shower',
-          'Hairdryer & Body soap',
+          '2.5 Bathrooms (Master Ensuite Bathtub & Shower)',
+          'Shared Shower',
+          'Hairdryer & Shower gel',
           'Cleaning products provided',
         ],
         tech: [
           'Solar Power (No load shedding)',
           'Fast Free WiFi (90 Mbps)',
-          '42-inch HDTV with DSTV',
+          '55-inch HDTV with DSTV',
           'Workspace with ergonomic chair',
+          'Board games & Books',
         ],
         outdoor: [
           'Fully fenced private backyard',
-          'Private charcoal BBQ grill',
+          'BBQ (Braai) stand on request',
           'Outdoor furniture & dining area',
           'Free private parking',
         ],
         safety: [
-          'Family friendly: High chair, Baby bath, Games',
+          'Family friendly: High chair, Baby bath',
           'Smoke & Carbon monoxide alarms',
-          'Ground floor (No stairs)',
+          'Ground floor',
           'Luggage drop-off allowed',
         ],
       },

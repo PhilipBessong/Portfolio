@@ -47,7 +47,7 @@
 
           <div class="col-md-6" *ngIf="room.features.kitchen.length">
             <div class="p-4 glass rounded h-100">
-              <h5 class="text-orange mb-3"><i class="fa-solid fa-utensils me-2"></i>Kitchen & Dining</h5>
+              <h5 class="text-orange mb-3"><i class="fa-solid fa-utensils me-2"></i>{{ room.roomtype === 'nocook' ? 'Heat & Eat' : 'Kitchen & Dining' }}</h5>
               <ul class="list-unstyled text-white-50">
                 <li *ngFor="let item of room.features.kitchen" class="mb-2 d-flex">
                   <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
