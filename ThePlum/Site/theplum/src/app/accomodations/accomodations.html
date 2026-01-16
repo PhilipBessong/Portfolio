@@ -22,7 +22,7 @@
                   *ngFor="let image of room.images; let j = index"
                   [class.active]="j === 0"
                 >
-                  <img [src]="image" class="room-image" [alt]="room.name" />
+                  <img [src]="image" class="room-image" [alt]="room.name" style="height: 80px; object-fit: cover; width: 100%;"/>
                 </div>
               </div>
 

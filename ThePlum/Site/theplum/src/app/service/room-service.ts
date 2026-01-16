@@ -94,7 +94,7 @@ export class RoomService {
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
-      price: 850,
+      price: 765,
       roomtype: 'nocook',
       amenities: [
         'Free Wi-Fi',
@@ -102,7 +102,7 @@ export class RoomService {
         'Free Parking',
         'Solar Power',
       ],
-      images: ['/assets/AffShot.jpg', '/assets/croom.jpg'],
+      images: ['/assets/afo1.jpeg', '/assets/afo2.jpeg','/assets/024.jpg','/assets/af0124.jpeg','/assets/af0125.jpeg'],
       description:
         'This is an exclusive, spacious, serene room; with a queen, comfortable bed for total occupancy of two. You have a writing desk, ergonomic chair, and high speed internet to support your business activities, or stay in contact with family and friends while on the move. You can follow current affairs, and business news, or just relax with the DSTV Compact bouquet. For your exclusive use, there are heat-and-eat facilities - fridge, microwave, electric kettle; with mugs, cutlery, and plates to go with. There is complimentary tea and coffee, and  prepared water.',
       features: {
@@ -152,10 +152,10 @@ export class RoomService {
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
-      price: 850,
+      price: 765,
       roomtype: 'nocook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
-      images: ['/assets/AffShot2.jpg'],
+      images: ['/assets/af0121.jpeg', '/assets/af0123.jpeg','/assets/014.jpg','/assets/016.jpg','/assets/018.jpg','/assets/020.jpg','/assets/tp.jpg' ],
       description:
         'This is an exclusive, spacious, serene room; with a queen, comfortable bed for total occupancy of two (slightly larger than its sister unit). You have a writing desk, ergonomic chair, and high speed internet to support your business activities, or stay in contact with family and friends while on the move. You can follow current affairs, and business news, or just relax with the DSTV Compact bouquet. For your exclusive use, there are heat-and-eat facilities - fridge, microwave, electric kettle; with mugs, cutlery, and plates to go with. There is complimentary tea and coffee, and  prepared water.',
       features: {
@@ -204,7 +204,7 @@ export class RoomService {
       capacity: 2, // Note: Text says 2 adults + baby, mapped to capacity 2 usually
       bedNum: 1,
       bathNum: 1,
-      price: 1000,
+      price: 900,
       roomtype: 'cook',
       amenities: [
         'Free Wi-Fi',
@@ -212,7 +212,7 @@ export class RoomService {
         'Family Friendly',
         'Barbeque Facilities',
       ],
-      images: ['/assets/BushShot2.jpg', '/assets/BushShot.jpg'],
+      images: ['/assets/bshot1.jpeg','/assets/bshot2.jpeg', '/assets/bshot3.jpeg','/assets/bshot4.jpeg','/assets/bshot5.jpeg','/assets/bshot6.jpeg','/assets/bshot7.jpeg'],
       description:
         'This air-conditioned, spacious one-bed room apartment consists of a queen bed, an exercise bike, and one ensuite bathroom with a shower. The well-fitted kitchenette comprises a stovetop, a refrigerator, kitchenware and a microwave. There is a washing machine, flat-screen TV with satellite channels, patio, garden views; high speed internet connection and  a dedicated writing desk. There is a barbecue stand on request.',
       features: {
@@ -262,10 +262,10 @@ export class RoomService {
       capacity: 8,
       bedNum: 5,
       bathNum: 2, // 2.5 baths rounded up or kept as 3
-      price: 1400,
+      price: 1260,
       roomtype: 'cook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
-      images: ['/assets/Lounge.jpg', '/assets/Kitchen.jpg'],
+      images: ['/assets/masterbroomtwo.jpeg','/assets/plword.jpeg','/assets/pllbath.jpeg','/assets/045.jpg','/assets/046.jpg','/assets/047.jpg','/assets/048.jpg','/assets/049.jpg','/assets/050.jpg','/assets/051.jpg','/assets/052.jpg','/assets/058.jpg','/assets/054.jpg','/assets/pll.jpeg','/assets/plltwo.jpeg','/assets/pllthree.jpeg','/assets/pllfour.jpeg','/assets/Kitchen.jpg','/assets/037.jpg','/assets/038.jpg','/assets/039.jpg',],
       description:
         'The Plum is fully furnished and suitable for families and groups of up to 8 individuals sharing. With a fully equipped kitchen and barbecue facilities, guests are able to prepare their own meals, with the option of enjoying their meals in the dining area or outdoors. The host provides complimentary tea and coffee; and 5L of prepared portable water daily to guests of two or less, and 10L to groups of three or more. Children of three years and below will enjoy a cot to sleep on, and a high chair to eat and bond with parents. The copious wardrobe space allows for the storage of belongings without things getting in the way. The lounge, with sofas and satellite television, allows guests to keep abreast with national and international current affairs and business news, or just to relax with any of the drama or movie channels. Guests traveling for business have a dedicated work area with an ergonomic chair. High speed internet is available in all areas of the property.',
       features: {
