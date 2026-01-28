@@ -1,0 +1,151 @@
+.plans-section {
+  padding: clamp(40px, 10vh, 80px) 15px;
+  background: #000;
+  color: whitesmoke;
+  border-radius: 20px;
+  margin: 20px 10px;
+}
+
+/* 📐 Fluid Typography for Headers */
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #d80000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Card Styling */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(216, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(216, 0, 0, 0.4);
+}
+
+/* Image scaling */
+.plan-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Inner Text Scaling */
+.plan-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  text-align: center;
+  margin-bottom: 15px;
+  color: #d80000;
+}
+
+.plan-description {
+  font-size: 0.95rem;
+  color: #ddd;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.plan-price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.hero-btn {
+  border-radius: 25px;
+  padding: clamp(8px, 2vw, 12px) clamp(20px, 5vw, 40px);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
+
+}
+
+.hero-btn:hover {
+  box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: 70vh;
+    padding: 10px;
+  }
+  .hero-img {
+    min-height: 500px; /* Force it taller on narrow phones */
+  }
+  .hTitle-top {
+    text-align: center; /* Center "Welcome To" on small phones */
+    width: 100%;
+  }
+  .hTitle-main {
+    font-size: 2.2rem; /* Slightly smaller font for mobile to save space */
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+
+  .hero-btn {
+    width: 80%; /* Make button wider and easier to click on mobile */
+    padding: 15px;
+    animation: pulse-red 2s infinite;
+  }
+}
+
+.info-btn {
+  border-radius: 25px;
+  padding: 12px 36px;
+  font-size: 1.2rem;
+   margin: 1%;
+  background-color: black;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  /* Soft white gradient glow */
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.6),
+    0 0 16px rgba(255, 255, 255, 0.4),
+    0 0 32px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.info-btn:hover {
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.8),
+    0 0 24px rgba(255, 255, 255, 0.6),
+    0 0 48px rgba(255, 255, 255, 0.3);
+}
+
+/* Button Refinement */
+.info-btn, .hero-btn {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-size: 1rem;
+}
+@keyframes pulse-red {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
