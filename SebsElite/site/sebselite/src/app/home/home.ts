@@ -10,7 +10,10 @@ import { Membership, MembershipService } from '../services/membership';
 export class Home {
   membershipPlans: Membership[] = [];
   constructor(private membershipService: MembershipService) {
-    this.membershipPlans = this.membershipService.getPlans();
+   const specificIds = [1, 3, 5];
+
+  this.membershipPlans = this.membershipService.getPlans()
+    .filter(plan => specificIds.includes(plan.plan_id));
   }
 
   toMemberships() {

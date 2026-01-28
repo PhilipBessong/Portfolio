@@ -103,10 +103,11 @@ position: absolute;
 }
 .about-section {
   color: #fff;
-
+    padding: clamp(40px, 10vh, 80px) 15px;
     .lead {
     font-size: 1.15rem;
     line-height: 1.6;
+      margin: 20px 10px;
   }
 
   .glass-card {

@@ -1,22 +1,24 @@
 <!-- ======= Boxers Section ======= -->
-<section id="boxers" class="boxers-section py-5">
+<section id="boxers" class="boxers-section">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="mb-3 section-title" style="color: #d80000">Our Boxers</h2>
       <p class="section-subtitle">
-        Meet the fighters of SEB’s Elite Boxing Gym
+        Meet the fighters at SEB's Elite Boxing Gym
       </p>
     </div>
 
-    <div class="row g-4">
+    <div class="row justify-content-center g-4">
       <div class="col-12 col-md-6" *ngFor="let boxer of boxers">
-        <div class="card glass-card h-100">
-          <div class="card-img-top">
-            <img [src]="boxer.image" [alt]="boxer.name" class="card-img-top" />
-          </div>
+        <div class="card h-100 boxer-card glass-card">
+           <div class="card-body d-flex flex-column p-4">
 
+          <div class="boxer-img-wrapper mb-4">
+            <img [src]="boxer.image" [alt]="boxer.name" class="img-fluid boxer-img" />
+          </div>
+          </div>
           <div class="card-body text-center">
-            <h5 class="card-title fw-bold">
+            <h5 class="card-title text-white fw-bold">
               {{ boxer.name }}
               <small *ngIf="boxer.nickname" class="text-muted"
                 >“{{ boxer.nickname }}”</small
@@ -25,7 +27,7 @@
             <p class="card-text" style="color: #d80000">
               {{ boxer.weightClass }}
             </p>
-            <p class="card-text">{{ boxer.record }}</p>
+            <p class="card-text text-white">{{ boxer.record }}</p>
             <div class="d-flex justify-content-center gap-3 mt-3">
               <a
                 *ngIf="boxer.instagram"

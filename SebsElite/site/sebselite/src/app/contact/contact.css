@@ -1,4 +1,7 @@
 .contact-section {
+      margin: 20px 10px;
+          padding: clamp(40px, 10vh, 80px) 15px;
+
   background: #111;
   color: #ccc;
   .glass-card {

@@ -41,7 +41,7 @@
 /* Image scaling */
 .plan-img {
   width: 100%;
-  height: 250px;
+  height: 350px;
   object-fit: cover;
   border-radius: 15px;
 }
@@ -82,35 +82,6 @@
   box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 576px) {
-  .hero-section {
-    min-height: 70vh;
-    padding: 10px;
-  }
-  .hero-img {
-    min-height: 500px; /* Force it taller on narrow phones */
-  }
-  .hTitle-top {
-    text-align: center; /* Center "Welcome To" on small phones */
-    width: 100%;
-  }
-  .hTitle-main {
-    font-size: 2.2rem; /* Slightly smaller font for mobile to save space */
-    margin-bottom: 15px;
-  }
-
-  .subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-  }
-
-  .hero-btn {
-    width: 80%; /* Make button wider and easier to click on mobile */
-    padding: 15px;
-    animation: pulse-red 2s infinite;
-  }
-}
 
 .info-btn {
   border-radius: 25px;
