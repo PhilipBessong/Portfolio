@@ -39,11 +39,7 @@
 i {
   color: #d80000;
 }
-.card-img-top {
-  width: 100%;
-  height: 600px; /* adjust to your preferred size */
-  object-fit: contain;
-}
+
 .boxer-img {
   width: 100%;
   height: 700px;

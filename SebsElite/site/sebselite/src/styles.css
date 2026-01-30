@@ -4,3 +4,21 @@ html, body {
   color: #fff; /* Optional: makes default text white */
   min-height: 100vh;
 }
+/* Define the animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Optional: makes it slide up slightly */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Create the utility class */
+.fade-in {
+ opacity: 0; /* Crucial: Start hidden to prevent the "double flash" */
+  animation: fadeIn 0.8s ease-out forwards; /* 'forwards' keeps it visible at the end */
+  animation-delay: 0.3s; /* Tiny delay to ensure the page has settled */
+}

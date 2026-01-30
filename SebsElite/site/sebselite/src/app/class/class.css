@@ -1,0 +1,69 @@
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #d80000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.boxers-section {
+  padding: clamp(40px, 10vh, 80px) 15px;
+  color: whitesmoke;
+  font-size: 1.3rem;
+  border-radius: 20px;
+  margin: 20px 10px;
+}
+/* Card Styling */
+ .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(216, 0, 0, 0.25) 0%,   /* subtle red tint */
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .story-block {
+    column-count: 1;
+    column-gap: 2rem;
+    text-align: justify;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #fff; /* white text for better contrast */
+  }
+
+  .about-img {
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-height: 500px;
+
+  }
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(216, 0, 0, 0.4);
+}
+
+i {
+  color: #d80000;
+}
+
+.boxer-img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  border-radius: 15px;
+}
