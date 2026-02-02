@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-about',
   imports: [],
@@ -7,7 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './about.css'
 })
 export class About {
+  constructor(private router: Router) {}
    openBookNow() {
-    
+
+  }
+    toRooms() {
+    this.router.navigate(['/accommodations']); // Or wherever your list is
   }
 }
