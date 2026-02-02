@@ -49,6 +49,8 @@
     border-radius: 20px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     max-height: 500px;
+      position: relative;
+  z-index: 2;
 
   }
 
@@ -66,4 +68,44 @@ i {
   height: 700px;
   object-fit: cover;
   border-radius: 15px;
+}
+/* Container for the image and the glow */
+.neon-glow-wrapper {
+  position: relative;
+  z-index: 1; /* Ensures glow stays behind image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* The actual neon circle */
+.neon-glow-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;  /* Adjust size of the circle */
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 0, 0, 0.7) 0%,
+    rgba(216, 0, 0, 0.3) 40%,
+    transparent 70%
+  );
+  filter: blur(40px); /* Softens the "neon" edge */
+  z-index: -1; /* Puts it behind the image */
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+  100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+}
+
+.neon-glow-wrapper::before {
+  animation: pulseGlow 4s infinite ease-in-out;
 }
