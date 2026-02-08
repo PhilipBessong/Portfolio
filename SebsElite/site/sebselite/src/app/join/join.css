@@ -54,6 +54,15 @@
     color: #fff;
      border-radius: 10px;
   }
+  form-control[type="file"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+  .form-check-input:checked {
+  background-color: #dc3545; /* Matches your btn-danger red */
+  border-color: #dc3545;
+}
 
   .join-info ul {
     margin: 0;

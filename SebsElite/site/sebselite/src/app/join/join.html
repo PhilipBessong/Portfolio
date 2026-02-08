@@ -57,9 +57,18 @@
                 type="text"
                 id="idNumber"
                 class="form-control"
-                placeholder="ID/Passport Number"
+                placeholder="8501015000081"
                 required
+                (blur)="validateSAID(idInput.value)"
+                #idInput
               />
+              <div
+                *ngIf="idValidationError"
+                class="text-warning mt-1"
+                style="font-size: 0.85rem"
+              >
+                {{ idValidationError }}
+              </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
@@ -91,7 +100,6 @@
                 <select
                   id="paymentDate"
                   class="form-control"
-                  required
                   style="
                     background-color: rgba(255, 255, 255, 0.1);
                     color: white;
@@ -143,7 +151,73 @@
                 required
               />
             </div>
-
+            <div class="mb-3">
+              <label for="pop" class="form-label text-light"
+                >Proof of Payment (Max 1MB)</label
+              >
+              <input
+                type="file"
+                id="pop"
+                class="form-control"
+                accept=".pdf, .jpg, .jpeg, .png"
+                (change)="onFileSelected($event)"
+                required
+              />
+              <div
+                *ngIf="fileSizeError"
+                class="text-warning mt-1"
+                style="font-size: 0.85rem"
+              >
+                File is too large! Please upload a file smaller than 1MB.
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="promoCode" class="form-label text-light"
+                >Promo Voucher Code?</label
+              >
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="promoCode"
+                  class="form-control"
+                  placeholder="e.g. ELITE2026"
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    color: white;
+                  "
+                />
+                <button
+                  class="btn btn-outline-light"
+                  type="button"
+                  (click)="applyPromo()"
+                >
+                  Apply
+                </button>
+              </div>
+              <small class="text-info" *ngIf="promoApplied"
+                >Voucher applied successfully!</small
+              >
+            </div>
+            <div class="mb-4 form-check">
+              <input
+                type="checkbox"
+                id="newsletter"
+                class="form-check-input"
+                style="cursor: pointer"
+              />
+              <label
+                class="form-check-label text-light"
+                for="newsletter"
+                style="cursor: pointer"
+              >
+                I’d like to receive news, fitness tips, and exclusive specials.
+              </label>
+            </div>
+<div class="mb-4 text-center">
+  <p class="text-light" style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">
+    Once your application has been received, a representative will be in contact. See you soon!
+  </p>
+</div>
             <div style="text-align: center">
               <button
                 type="submit"
