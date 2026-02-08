@@ -261,7 +261,7 @@ export class RoomService {
       name: 'The Plum',
       capacity: 8,
       bedNum: 5,
-      bathNum: 2, // 2.5 baths rounded up or kept as 3
+      bathNum: 2.5, // 2.5 baths rounded up or kept as 3
       price: 1260,
       roomtype: 'cook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
