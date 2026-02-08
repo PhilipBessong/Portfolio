@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule,} from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { Membership, MembershipService } from '../services/membership';
 @Component({
   selector: 'app-memberships',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './memberships.html',
   styleUrl: './memberships.css'
 })

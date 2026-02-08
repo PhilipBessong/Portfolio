@@ -10,7 +10,7 @@
 
     <div class="row align-items-center justify-content-center g-4">
       <!-- Join Form -->
-      <div class="col-lg-6">
+      <div class="col-lg-8">
         <div class="glass-card join-form">
           <form>
             <div class="row">
@@ -79,6 +79,8 @@
                   id="membership"
                   class="form-control"
                   required
+                  [(ngModel)]="selectedPlanId"
+                  name="membership"
                   style="
                     background-color: rgba(255, 255, 255, 0.1);
                     color: white;
@@ -213,11 +215,15 @@
                 I’d like to receive news, fitness tips, and exclusive specials.
               </label>
             </div>
-<div class="mb-4 text-center">
-  <p class="text-light" style="font-size: 0.95rem; opacity: 0.8; font-style: italic;">
-    Once your application has been received, a representative will be in contact. See you soon!
-  </p>
-</div>
+            <div class="mb-4 text-center">
+              <p
+                class="text-light"
+                style="font-size: 0.95rem; opacity: 0.8; font-style: italic"
+              >
+                Once your application has been received, a representative will
+                be in contact. See you soon!
+              </p>
+            </div>
             <div style="text-align: center">
               <button
                 type="submit"
@@ -228,6 +234,17 @@
             </div>
           </form>
         </div>
+      </div>
+      <div class="col-lg-8 story-block glass-card">
+        <h3 class="mb-3 text-danger text-center">Banking Details</h3>
+        <h5 class="mt-4 text-danger text-center">
+          Sebs Extreme Boxing FNB HATFIELD
+        </h5>
+        <ul class="list-unstyled text-center">
+          <li><strong>Account Number:</strong> 62629025249</li>
+          <li><strong>Branch Code:</strong> 252145</li>
+          <li><strong>Reference:</strong> Name and Surname</li>
+        </ul>
       </div>
     </div>
   </div>
