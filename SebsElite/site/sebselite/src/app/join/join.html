@@ -1,0 +1,160 @@
+<section id="join" class="join-section fade-in">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="mb-3 section-title" style="color: #d80000">Join Us</h2>
+      <p class="section-subtitle">
+        Ready to take your fitness journey to the next level? Join our elite
+        boxing community today! Fill out the form below to get started.
+      </p>
+    </div>
+
+    <div class="row align-items-center justify-content-center g-4">
+      <!-- Join Form -->
+      <div class="col-lg-6">
+        <div class="glass-card join-form">
+          <form>
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <label for="title" class="form-label text-light">Title</label>
+                <select id="title" class="form-control" required>
+                  <option value="" selected disabled>Select...</option>
+                  <option value="Mr">Mr.</option>
+                  <option value="Mrs">Mrs.</option>
+                  <option value="Ms">Ms.</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Dr">Dr.</option>
+                </select>
+              </div>
+              <div class="col-md-8 mb-3">
+                <label for="firstName" class="form-label text-light"
+                  >First Name(s)</label
+                >
+                <input
+                  type="text"
+                  id="firstName"
+                  class="form-control"
+                  placeholder="John"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="surname" class="form-label text-light">Surname</label>
+              <input
+                type="text"
+                id="surname"
+                class="form-control"
+                placeholder="Doe"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="idNumber" class="form-label text-light"
+                >ID Number</label
+              >
+              <input
+                type="text"
+                id="idNumber"
+                class="form-control"
+                placeholder="ID/Passport Number"
+                required
+              />
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="membership" class="form-label text-light"
+                  >Membership Plan</label
+                >
+                <select
+                  id="membership"
+                  class="form-control"
+                  required
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    color: white;
+                  "
+                >
+                  <option value="" selected disabled>Choose Plan...</option>
+                  <option
+                    *ngFor="let plan of membershipPlans"
+                    [value]="plan.plan_id"
+                  >
+                    {{ plan.plan_name }} - R{{ plan.price }}
+                  </option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="paymentDate" class="form-label text-light"
+                  >Payment Date</label
+                >
+                <select
+                  id="paymentDate"
+                  class="form-control"
+                  required
+                  style="
+                    background-color: rgba(255, 255, 255, 0.1);
+                    color: white;
+                  "
+                >
+                  <option value="" selected disabled>Select Date...</option>
+                  <option value="15th">15th of the month</option>
+                  <option value="30th">30th of the month</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="contact" class="form-label text-light"
+                  >Contact Number</label
+                >
+                <input
+                  type="tel"
+                  id="contact"
+                  class="form-control"
+                  placeholder="071 234 5678"
+                  required
+                />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="email" class="form-label text-light"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label for="emergency" class="form-label text-light"
+                >Emergency Contact Number</label
+              >
+              <input
+                type="tel"
+                id="emergency"
+                class="form-control"
+                placeholder="Contact person's number"
+                required
+              />
+            </div>
+
+            <div style="text-align: center">
+              <button
+                type="submit"
+                class="btn btn-danger btn-lg hero-btn w-100"
+              >
+                Sign Up for Elite Training
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

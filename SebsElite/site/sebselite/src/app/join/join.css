@@ -1,0 +1,88 @@
+.section-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #d80000;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.join-section {
+      margin: 20px 10px;
+          padding: clamp(40px, 10vh, 80px) 15px;
+
+  background: #111;
+  color: #ccc;
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(216, 0, 0, 0.2) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .join-form .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+  }
+
+  .join-form .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #d80000;
+    box-shadow: 0 0 10px rgba(216, 0, 0, 0.6);
+    color: #fff;
+  }
+  .join-form select{
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+  }
+  .join-form option{
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+     border-radius: 10px;
+  }
+
+  .join-info ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .social-links a {
+    color: #ccc;
+    transition: 0.3s;
+  }
+
+  .social-links a:hover {
+    color: #d80000;
+  }
+}
+.hero-btn {
+  border-radius: 25px;
+  padding: 12px 36px;
+  font-size: 1.2rem;
+  font-family: 'oswald', sans-serif;
+  box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
+  transition: box-shadow 0.2s;
+}
+
+.hero-btn:hover {
+  box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
+}
+option{
+
+  color: #fff;
+}
