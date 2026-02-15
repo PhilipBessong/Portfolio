@@ -82,7 +82,15 @@
         us!
       </p>
     </div>
-
+    <div>
+      <div class="d-flex justify-content-end mb-4">
+        <a
+          [routerLink]="['/memberships']"
+          class="btn btn-outline-danger btn-lg hero-btn"
+          >View All Plans</a
+        >
+      </div>
+    </div>
     <div class="row justify-content-center g-4">
       <div
         class="col-12 col-sm-10 col-md-6 col-lg-4"
@@ -108,9 +116,13 @@
               </p>
 
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="/join" class="btn btn-danger hero-btn w-100"
-                  >Join Now</a
+                <button
+                  [routerLink]="['/join']"
+                  [queryParams]="{ planId: plan.plan_id }"
+                  class="btn btn-danger hero-btn w-100"
                 >
+                  Join Now
+                </button>
               </div>
             </div>
           </div>

@@ -4,7 +4,8 @@
     <div class="text-center mb-5">
       <h1 class="section-title">Membership Plans</h1>
       <p class="section-subtitle">
-        Choose a plan that fits your needs and start your fitness journey with us!
+        Choose a plan that fits your needs and start your fitness journey with
+        us!
       </p>
     </div>
 
@@ -15,7 +16,6 @@
       >
         <div class="card h-100 plan-card glass-card">
           <div class="card-body d-flex flex-column p-4">
-
             <div class="plan-img-wrapper mb-4">
               <img
                 [src]="plan.plan_img"
@@ -26,25 +26,23 @@
 
             <h5 class="plan-card-title">{{ plan.plan_name }}</h5>
 
-            <p class="plan-description">
-              {{ plan.description }}
-            </p>
+            <p class="plan-description">{{ plan.description }}</p>
 
             <div class="mt-auto pt-4">
               <p class="plan-price">
                 Price: {{ plan.price | currency:'R':'symbol' }}
               </p>
 
-             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-  <button
-    [routerLink]="['/join']"
-    [queryParams]="{ planId: plan.plan_id }"
-    class="btn btn-danger hero-btn w-100">
-    Join Now
-  </button>
-</div>
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button
+                  [routerLink]="['/join']"
+                  [queryParams]="{ planId: plan.plan_id }"
+                  class="btn btn-danger hero-btn w-100"
+                >
+                  Join Now
+                </button>
+              </div>
             </div>
-
           </div>
         </div>
       </div>
