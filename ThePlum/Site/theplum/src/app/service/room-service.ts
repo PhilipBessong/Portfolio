@@ -94,7 +94,7 @@ export class RoomService {
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
-      price: 765,
+      price: 800,
       roomtype: 'nocook',
       amenities: [
         'Free Wi-Fi',
@@ -152,7 +152,7 @@ export class RoomService {
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
-      price: 765,
+      price: 800,
       roomtype: 'nocook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: ['/assets/af0121.jpeg', '/assets/af0123.jpeg','/assets/014.jpg','/assets/016.jpg','/assets/018.jpg','/assets/020.jpg','/assets/tp.jpg' ],
