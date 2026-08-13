@@ -1,103 +1,100 @@
 .hTitle-main {
   font-family: 'Oswald', sans-serif;
-  /* Min: 1.8rem, Fluid: 6vw, Max: 4rem */
   font-size: clamp(1.8rem, 6vw, 4rem);
   line-height: 1.1;
   margin-bottom: 10px;
 }
 
-h1{
+h1 {
   font-family: 'Oswald', sans-serif;
 }
-h2{
+
+h2 {
   font-family: 'Oswald', sans-serif;
 }
+
 .subtitle {
- font-family: 'Oswald', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: clamp(1rem, 3vw, 1.5rem);
   color: #d80000;
   margin-bottom: 20px;
-
 }
+
 .hero-section {
- min-height: 80vh;
+  min-height: 80vh;
   background: #000;
   display: flex;
   align-items: center;
   padding: 40px 20px;
 }
+
 .hero-content-wrapper {
   max-width: 100%;
   border-radius: 20px;
-  overflow: hidden; /* Clips the overlay if it tries to bleed out */
+  overflow: hidden;
 }
+
 .hero-img {
   width: 100%;
-  /* This ensures the image is never too short to fit the text on mobile */
   min-height: 450px;
   max-height: 600px;
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 0 32px #d8000044;
   display: block;
- /* margin-left: auto;
-  margin-right: auto;*/
 }
 
 .hero-overlay {
-position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Now stays 100% of the WRAPPER (the image) */
+  width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dim the image for text readability */
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
- padding: 30px 20px;
+  padding: 30px 20px;
   border-radius: 20px;
   text-align: center;
 }
 
+/* Original Hero Button styling */
 .hero-btn {
   border-radius: 25px;
   padding: clamp(8px, 2vw, 12px) clamp(20px, 5vw, 40px);
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   font-family: 'Oswald', sans-serif;
   box-shadow: 0 0 12px #d80000, 0 0 24px #ff1f1f33;
-
 }
 
 .hero-btn:hover {
   box-shadow: 0 0 24px #d80000, 0 0 48px #ff1f1f66;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 576px) {
   .hero-section {
     min-height: 70vh;
     padding: 10px;
   }
   .hero-img {
-    min-height: 500px; /* Force it taller on narrow phones */
+    min-height: 500px;
   }
   .hTitle-top {
-    text-align: center; /* Center "Welcome To" on small phones */
+    text-align: center;
     width: 100%;
   }
   .hTitle-main {
-    font-size: 2.2rem; /* Slightly smaller font for mobile to save space */
+    font-size: 2.2rem;
     margin-bottom: 15px;
   }
-
   .subtitle {
     font-size: 1.1rem;
     margin-bottom: 25px;
   }
-
   .hero-btn {
-    width: 80%; /* Make button wider and easier to click on mobile */
+    width: 80%;
     padding: 15px;
     animation: pulse-red 2s infinite;
   }
@@ -107,11 +104,10 @@ position: absolute;
   border-radius: 25px;
   padding: 12px 36px;
   font-size: 1.2rem;
-   margin: 1%;
+  margin: 1%;
   background-color: black;
   color: white;
   font-family: 'Oswald', sans-serif;
-  /* Soft white gradient glow */
   box-shadow:
     0 0 8px rgba(255, 255, 255, 0.6),
     0 0 16px rgba(255, 255, 255, 0.4),
@@ -126,7 +122,6 @@ position: absolute;
     0 0 48px rgba(255, 255, 255, 0.3);
 }
 
-
 .banner-section {
   background-color: #000;
   border-radius: 20px;
@@ -136,45 +131,31 @@ position: absolute;
 }
 
 .banner-content {
-  /* Use fluid padding so it gets tighter on small screens */
   padding: clamp(30px, 8vh, 60px) 10px;
 }
 
 .banner-title {
   font-family: 'Oswald', sans-serif;
-
-  /* 📐 ADJUSTED CLAMP:
-     Min: 1.3rem (Lowered from 1.8rem to prevent overflow)
-     Fluid: 8vw (Slightly faster scaling)
-     Max: 4rem
-  */
   font-size: clamp(1.3rem, 8vw, 4rem);
-
   font-weight: bold;
   color: #d80000;
-  letter-spacing: 0.5px; /* Reduced slightly for mobile fit */
+  letter-spacing: 0.5px;
   line-height: 1.2;
   text-transform: uppercase;
-
-  /* 🛡️ THE OVERFLOW FIXES: */
-  overflow-wrap: break-word; /* Forces long words to wrap if they hit the edge */
+  overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
 }
 
 .banner-title span {
-  /* This ensures that on mobile, each phrase is a block
-     but doesn't force a width that causes scrolling */
   max-width: 100%;
   display: block;
 }
 
-/* Ensure the white span looks distinct */
 .banner-title .text-white {
   color: #ffffff !important;
 }
 
-/* Tablet and Desktop: Let them sit inline again */
 @media (min-width: 768px) {
   .banner-title span {
     display: inline;
@@ -189,54 +170,46 @@ position: absolute;
   color: whitesmoke;
   background: #000;
   border-radius: 20px;
-  margin: 20px 10px; /* Reduced margin for mobile */
+  margin: 20px 10px;
 }
 
 .about-img {
-  /* 📐 Responsive Circle Logic */
   width: 100%;
-  max-width: 400px; /* Maximum size on desktop */
-  aspect-ratio: 1 / 1; /* Keeps it a perfect circle */
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
   border-radius: 50% !important;
   object-fit: cover;
-
-  /* Glow Effect */
   box-shadow: 0 0 15px #d80000, 0 0 30px rgba(255, 31, 31, 0.2);
-
-  /* Ensure it looks good on very small screens */
   margin: 0 auto;
 }
 
 .about-p {
-  /* 📐 Fluid Typography */
   font-size: clamp(1rem, 2.5vw, 1.25rem);
   line-height: 1.6;
   margin-bottom: 1.5rem;
-  color: #ccc; /* Slightly dimmed for better readability */
+  color: #ccc;
 }
 
-/* Tablet and Desktop specific tweaks */
 @media (min-width: 992px) {
   .about-section {
     margin: 40px auto;
     max-width: 1100px;
   }
-
   .about-text-content {
     padding-left: 30px;
   }
 }
 
-/* Small mobile tweaks */
 @media (max-width: 576px) {
   .about-img {
-    max-width: 280px; /* Smaller circle for small phones */
+    max-width: 280px;
   }
   .about-section {
     padding: 30px 15px;
     margin: 10px;
   }
 }
+
 /* Section Container */
 .plans-section {
   padding: clamp(40px, 10vh, 80px) 15px;
@@ -246,7 +219,6 @@ position: absolute;
   margin: 20px 10px;
 }
 
-/* 📐 Fluid Typography for Headers */
 .section-title {
   font-family: 'Oswald', sans-serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -278,15 +250,14 @@ position: absolute;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(216, 0, 0, 0.4);
 }
 
-/* Image scaling */
+/* UPDATED: Changed height: 350px to aspect-ratio so images scale naturally */
 .plan-img {
   width: 100%;
-  height: 350px;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 15px;
 }
 
-/* Inner Text Scaling */
 .plan-card-title {
   font-family: 'Oswald', sans-serif;
   font-size: clamp(1.3rem, 3vw, 1.6rem);
@@ -310,7 +281,7 @@ position: absolute;
   margin-bottom: 10px;
 }
 
-/* Button Refinement */
+/* Original button refinement */
 .info-btn, .hero-btn {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
@@ -319,9 +290,9 @@ position: absolute;
   padding: 12px 20px;
   font-size: 1rem;
 }
+
 @keyframes pulse-red {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
-
