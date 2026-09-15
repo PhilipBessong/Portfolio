@@ -1,13 +1,10 @@
-/* Prevent horizontal scroll */
-.container {
-  overflow-x: hidden;
-}
 
 
+
+/* Color Utilities */
 .text-orange {
   color: #FFAB5B;
 }
-
 
 .btn-orange {
   background-color: #FFAB5B;
@@ -20,25 +17,7 @@
   color: #fff;
 }
 
-/* Ensure images are uniform height and cover the area */
-.room-image {
-  width: 100%;
-  height: 400px; /* Fixed height for mobile/tablet */
-  object-fit: cover;
-}
-
-@media (min-width: 768px) {
-  .room-image {
-    height: 100%; /* Fill the card height on desktop */
-    min-height: 500px;
-  }
-}
-
-/* Room Info Background - Glassmorphism style */
-.room-details-bg {
-  backdrop-filter: blur(10px);
-}
-
+/* Card & Glassmorphism Styling */
 .room-card {
   transition: transform 0.3s ease;
   background: transparent;
@@ -48,47 +27,39 @@
   transform: translateY(-5px);
 }
 
+.room-details-bg {
+  backdrop-filter: blur(10px);
+}
+
 .amenities-list li {
   font-size: 0.95rem;
   display: flex;
   align-items: center;
 }
 
-@media (min-width: 768px) {
- .room-image {
-    height: 100%; /* Fill the card height on desktop */
-    min-height: 500px;
-  }
-}
-
-/* Ensure images are uniform height and cover the area */
-.room-image {
-  width: 100%;
-  height: 400px; /* Fixed height for mobile/tablet */
-  object-fit: cover;
-}
-
+/* Responsive Image & Carousel Styling */
 .carousel,
 .carousel-inner,
 .carousel-item {
   height: 100%;
 }
 
-.carousel-item img {
-  height: 100%;
+.room-image {
+  width: 100%;
+  height: 280px; /* Aspect ratio friendly height for small screens */
   object-fit: cover;
+  object-position: center;
 }
 
-
-.amenities-list li {
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
+/* Desktop layout rules */
+@media (min-width: 768px) {
+  .room-image {
+    height: 100%;
+    min-height: 480px; /* Ensures desktop image column matches detail height */
+  }
 }
-
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-in-out;
 }
-
 

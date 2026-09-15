@@ -4,16 +4,18 @@
       <h1 class="display-4 fw-bold text-white mb-3">
         Our <span class="text-orange">Rooms</span>
       </h1>
-        <p class="lead text-white-50 mx-auto" style="max-width: 800px">
+      <p class="lead text-white-50 mx-auto" style="max-width: 800px">
         Home-Away-From-Home
       </p>
     </div>
   </div>
-<div class="row justify-content-center">
+
+  <div class="row justify-content-center">
     <div class="col-12 mb-5" *ngFor="let room of rooms; let i = index">
       <div class="card room-card border-0 shadow-lg overflow-hidden">
         <div class="row g-0">
 
+          <!-- Image Carousel Column -->
           <div class="col-12 col-md-5">
             <div [id]="'carouselRoom' + i" class="carousel slide h-100" data-bs-ride="carousel">
               <div class="carousel-inner h-100">
@@ -22,7 +24,8 @@
                   *ngFor="let image of room.images; let j = index"
                   [class.active]="j === 0"
                 >
-                  <img [src]="image" class="room-image" [alt]="room.name" style="height: 80px; object-fit: cover; width: 100%;"/>
+                  <!-- Inline style removed so CSS handles responsive height -->
+                  <img [src]="image" class="room-image" [alt]="room.name" />
                 </div>
               </div>
 
@@ -35,6 +38,7 @@
             </div>
           </div>
 
+          <!-- Room Details Column -->
           <div class="col-12 col-md-7 glass room-details-bg text-white p-4 p-lg-5 d-flex flex-column justify-content-center">
             <h2 class="fw-bold mb-3 text-teal text-center text-md-start">{{ room.name }}</h2>
 
@@ -44,8 +48,8 @@
               <span><i class="fa-solid fa-users text-orange me-2"></i>{{room.capacity}} Guests</span>
             </div>
 
-            <h4 class="mb-4">
-              <span class="text-muted fw-light">Price:</span>
+            <h4 class="mb-4 text-center text-md-start">
+              <span class="text-muted fw-light">From </span>
               <strong class="text-orange">R{{ room.price }}</strong> <small>/night</small>
             </h4>
 
@@ -60,15 +64,18 @@
                 </ul>
               </div>
 
-             <div class="col-12 col-sm-6 d-flex flex-column justify-content-center gap-3">
-  <button
-    class="btn btn-outline-light rounded-pill px-4"
-    [routerLink]="['/room', room.id]">
-    View Details
-  </button>
-
-  <button onclick="window.open('https://book.nightsbridge.com/39324', '_blank')" class="btn btn-orange rounded-pill px-4 fw-bold">Book Now</button>
-</div>
+              <div class="col-12 col-sm-6 d-flex flex-column justify-content-center gap-3">
+                <button
+                  class="btn btn-outline-light rounded-pill px-4"
+                  [routerLink]="['/room', room.id]">
+                  View Details
+                </button>
+                <button
+                  onclick="window.open('https://book.nightsbridge.com/39324', '_blank')"
+                  class="btn btn-orange rounded-pill px-4 fw-bold">
+                  Book Now
+                </button>
+              </div>
             </div>
           </div>
 
