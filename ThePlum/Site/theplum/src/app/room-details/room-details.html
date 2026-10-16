@@ -9,29 +9,33 @@
   <div class="container">
     <div class="row g-4">
 
-      <div class="col-lg-7">
+      <div class="col-lg-7 mobile-contents">
 
-        <div id="detailsCarousel" class="carousel slide shadow-lg rounded-3 overflow-hidden" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item" *ngFor="let img of room.images; let i = index" [class.active]="i === 0">
-              <img [src]="img" class="d-block w-100 detail-hero-img" [alt]="room.name">
+        <!-- 1. Carousel & Thumbnails Container (Order 1 on mobile) -->
+        <div class="order-1 w-100">
+          <div id="detailsCarousel" class="carousel slide shadow-lg rounded-3 overflow-hidden" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor="let img of room.images; let i = index" [class.active]="i === 0">
+                <img [src]="img" class="d-block w-100 detail-hero-img" [alt]="room.name">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#detailsCarousel" data-bs-slide="prev" *ngIf="room.images.length > 1">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#detailsCarousel" data-bs-slide="next" *ngIf="room.images.length > 1">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="row g-2 mt-2" *ngIf="room.images.length > 1">
+            <div class="col-3" *ngFor="let thumb of room.images">
+              <img [src]="thumb" class="img-fluid rounded border-orange" style="height: 80px; object-fit: cover; width: 100%; cursor: pointer">
             </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#detailsCarousel" data-bs-slide="prev" *ngIf="room.images.length > 1">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#detailsCarousel" data-bs-slide="next" *ngIf="room.images.length > 1">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          </button>
         </div>
 
-        <div class="row g-2 mt-2" *ngIf="room.images.length > 1">
-          <div class="col-3" *ngFor="let thumb of room.images">
-            <img [src]="thumb" class="img-fluid rounded border-orange" style="height: 80px; object-fit: cover; width: 100%; cursor: pointer">
-          </div>
-        </div>
-
-        <div class="row g-4 mt-4" *ngIf="room.features">
+        <!-- 3. Features Grid (Order 3 on mobile) -->
+        <div class="row g-4 mt-4 order-3 w-100" *ngIf="room.features">
 
           <div class="col-md-6" *ngIf="room.features.sleeping.length">
             <div class="p-4 glass rounded h-100">
@@ -108,12 +112,13 @@
         </div>
       </div>
 
-      <div class="col-lg-5">
+      <!-- 2. Room Details & Booking Card (Order 2 on mobile) -->
+      <div class="col-lg-5 order-2">
         <div class="card glass text-white border-0 h-100 p-4 p-md-5 shadow-lg position-sticky" style="top: 20px; z-index: 10;">
 
           <h1 class="display-5 fw-bold text-teal mb-2">{{ room.name }}</h1>
           <p class="lead text-orange fw-bold mb-4">R{{ room.price }} <span class="text-white-50 fs-6 fw-normal">/ night</span></p>
-
+          <p class="text-white-50 fs-6 fw-normal">Free for children under 5 years old</p>
           <hr class="border-white-50 mb-4">
 
           <div class="d-flex justify-content-between mb-4 text-center">
@@ -153,6 +158,7 @@
 
         </div>
       </div>
+
     </div>
   </div>
 </div>

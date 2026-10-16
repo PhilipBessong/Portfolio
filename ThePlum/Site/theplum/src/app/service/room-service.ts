@@ -94,7 +94,7 @@ export class RoomService {
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
-      price: 800,
+      price: 700,
       roomtype: 'nocook',
       amenities: [
         'Free Wi-Fi',
@@ -152,7 +152,7 @@ export class RoomService {
       capacity: 2,
       bedNum: 1,
       bathNum: 1,
-      price: 800,
+      price: 700,
       roomtype: 'nocook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: ['/assets/af0121.jpeg', '/assets/af0123.jpeg','/assets/014.jpg','/assets/016.jpg','/assets/018.jpg','/assets/020.jpg','/assets/tp.jpg' ],
@@ -204,7 +204,7 @@ export class RoomService {
       capacity: 2, // Note: Text says 2 adults + baby, mapped to capacity 2 usually
       bedNum: 1,
       bathNum: 1,
-      price: 900,
+      price: 800,
       roomtype: 'cook',
       amenities: [
         'Free Wi-Fi',
@@ -262,7 +262,7 @@ export class RoomService {
       capacity: 8,
       bedNum: 5,
       bathNum: 2.5, // 2.5 baths rounded up or kept as 3
-      price: 1260,
+      price: 850,
       roomtype: 'cook',
       amenities: ['Free Wi-Fi', 'Solar Power', 'Free Parking'],
       images: ['/assets/masterbroomtwo.jpeg','/assets/plword.jpeg','/assets/pllbath.jpeg','/assets/045.jpg','/assets/046.jpg','/assets/047.jpg','/assets/048.jpg','/assets/049.jpg','/assets/050.jpg','/assets/051.jpg','/assets/052.jpg','/assets/058.jpg','/assets/054.jpg','/assets/pll.jpeg','/assets/plltwo.jpeg','/assets/pllthree.jpeg','/assets/pllfour.jpeg','/assets/Kitchen.jpg','/assets/037.jpg','/assets/038.jpg','/assets/039.jpg',],

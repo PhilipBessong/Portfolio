@@ -48,3 +48,9 @@
     height: 300px;
   }
 }
+
+@media (max-width: 991.98px) {
+  .mobile-contents {
+    display: contents;
+  }
+}

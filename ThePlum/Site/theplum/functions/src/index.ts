@@ -1,27 +1,32 @@
-import * as functions from "firebase-functions";
+import {onDocumentCreated} from "firebase-functions/v2/firestore";
 import {google} from "googleapis";
 import * as admin from "firebase-admin";
 
 admin.initializeApp();
 
-const calendar = google.calendar("v3");
 const auth = new google.auth.GoogleAuth({
   keyFile: "service-account.json",
   scopes: ["https://www.googleapis.com/auth/calendar"],
 });
 
-export const addBookingToCalendar = functions.firestore
-  .document("bookings/{bookingId}")
-  .onCreate(async (snap) => {
+const calendar = google.calendar({version: "v3", auth});
+
+export const addBookingToCalendar = onDocumentCreated(
+  "bookings/{bookingId}",
+  async (event) => {
+    const snap = event.data;
+    if (!snap) {
+      console.log("No snapshot data found");
+      return;
+    }
+
     const booking = snap.data();
 
-    const authClient = await auth.getClient();
-
-    const event = {
+    const calendarEvent = {
       summary: `Booking: Room ${booking.room_id}`,
       description: `Guest: ${booking.user_id}\nStatus: ${booking.status}`,
       start: {
-        date: booking.start_date, // e.g. "2025-10-01"
+        date: booking.start_date,
         timeZone: "Africa/Johannesburg",
       },
       end: {
@@ -31,10 +36,10 @@ export const addBookingToCalendar = functions.firestore
     };
 
     await calendar.events.insert({
-      auth: authClient,
-      calendarId: "primary", // replace with your Guesthouse Calendar ID
-      requestBody: event,
+      calendarId: "primary",
+      requestBody: calendarEvent,
     });
 
     console.log("Booking added to Google Calendar");
-  });
+  },
+);
