@@ -1,92 +1,69 @@
-import { Component } from '@angular/core';
+import { AfterViewInit,
+  Component,
+  DestroyRef,
+  ElementRef,
+  HostListener,
+  inject,
+  PLATFORM_ID,
+  signal,
+  viewChild, } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { RoomService, Room, Booking } from '../service/room-service';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { isPlatformBrowser } from '@angular/common';
+import type Collapse from 'bootstrap/js/dist/collapse';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterModule, CommonModule, FormsModule],
+  imports: [RouterModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
-  providers: [RoomService],
 })
-export class Navbar {
-  showBookNow = false;
-  rooms: Room[] = [];
-  selectedRoom: Room | undefined;
-  booking = {
-    fName: '',
-    lName: '',
-    email: '',
-    phone: '',
-    roomId: '',
-    checkin: '',
-    checkout: '',
-    adults: 1,
-    children: 0,
-  };
+export class Navbar implements AfterViewInit {
+  private readonly hostRef = inject(ElementRef<HTMLElement>);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly destroyRef = inject(DestroyRef);
 
-  constructor(private roomService: RoomService) {
-    this.roomService.getRooms().subscribe((rooms) => {
-      this.rooms = rooms;
+  private readonly navbarNav = viewChild<ElementRef<HTMLElement>>('navbarNav');
+  private collapseInstance: Collapse | null = null;
+
+  // Signal driving the [class.collapsed] and [attr.aria-expanded] on the icon button
+  readonly isMenuOpen = signal(false);
+
+  async ngAfterViewInit(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const navEl = this.navbarNav()?.nativeElement;
+    if (!navEl) return;
+
+    const { default: CollapseClass } = await import('bootstrap/js/dist/collapse');
+    this.collapseInstance = CollapseClass.getOrCreateInstance(navEl, { toggle: false });
+
+    // Sync signal state with Bootstrap's actual animation events
+    const onShow = () => this.isMenuOpen.set(true);
+    const onHide = () => this.isMenuOpen.set(false);
+
+    navEl.addEventListener('show.bs.collapse', onShow);
+    navEl.addEventListener('hide.bs.collapse', onHide);
+
+    this.destroyRef.onDestroy(() => {
+      navEl.removeEventListener('show.bs.collapse', onShow);
+      navEl.removeEventListener('hide.bs.collapse', onHide);
+      this.collapseInstance?.dispose();
     });
   }
 
-  // This is triggered automatically when [(ngModel)]="booking.roomId" changes
-  ngDoCheck() {
-    const newRoom = this.roomService.getRoomById(this.booking.roomId);
-    if (newRoom && newRoom !== this.selectedRoom) {
-      this.selectedRoom = newRoom;
-
-      // Optional: Clamp values if they exceed the new limits
-      if (this.booking.adults > newRoom.capacity) {
-        this.booking.adults = newRoom.capacity;
-      }
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    if (this.isMenuOpen() && !this.hostRef.nativeElement.contains(event.target as Node)) {
+      this.closeMenu();
     }
   }
 
-  submitBooking() {
-    const selectedRoom = this.roomService.getRoomById(this.booking.roomId);
-    if (!selectedRoom) {
-      alert('Please select a room');
-      return;
+  toggleMenu(): void {
+    this.collapseInstance?.toggle();
+  }
+
+  closeMenu(): void {
+    if (this.isMenuOpen()) {
+      this.collapseInstance?.hide();
     }
-    const newBooking: Booking = {
-      room_id: selectedRoom.id,
-      first_name: this.booking.fName,
-      last_name: this.booking.lName,
-      email: this.booking.email,
-      phone: this.booking.phone,
-      adult_guests: this.booking.adults,
-      child_guests: this.booking.children,
-      total_guests: this.booking.adults + this.booking.children,
-      start_date: this.booking.checkin,
-      end_date: this.booking.checkout,
-      total_price: this.calculateTotalPrice(selectedRoom),
-      status: 'pending',
-      source: 'website',
-      created_at: new Date(),
-    };
-    console.log('Booking submitted:', newBooking);
-    // You can send this to Firebase or a backend here.
-    alert(`Booking submitted for ${selectedRoom?.name}`);
-  }
-
-  calculateTotalPrice(room: Room): number {
-    if (!this.booking.checkin || !this.booking.checkout) return 0;
-    const start = new Date(this.booking.checkin);
-    const end = new Date(this.booking.checkout);
-    const nights = Math.ceil(
-      (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)
-    );
-    return nights > 0 ? nights * room.price : room.price;
-  }
-
-  openBookNow() {
-    this.showBookNow = true;
-  }
-
-  closeBookNow() {
-    this.showBookNow = false;
   }
 }
