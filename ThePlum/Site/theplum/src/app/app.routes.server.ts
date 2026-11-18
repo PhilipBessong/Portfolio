@@ -2,11 +2,11 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: 'room/:id',
+    path: 'room/:name',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       // Angular needs this list to know which HTML files to build at compile time
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
+      return [{ name: 'The Affectionate One' }, { name: 'The Affectionate One 2' }, { name: 'Bush Mango' }, { name: 'The Plum' }];
     },
   },
   {
