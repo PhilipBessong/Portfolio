@@ -15,16 +15,15 @@
       <div class="card room-card border-0 shadow-lg overflow-hidden">
         <div class="row g-0">
 
-          <!-- Image Carousel Column -->
-          <div class="col-12 col-md-5">
-            <div [id]="'carouselRoom' + i" class="carousel slide h-100" data-bs-ride="carousel">
+        <!-- Image Carousel Column -->
+          <div class="col-12 col-md-5 overflow-hidden">
+            <div [id]="'carouselRoom' + i" class="carousel slide carousel-fade h-100" data-bs-ride="carousel">
               <div class="carousel-inner h-100">
                 <div
                   class="carousel-item h-100"
                   *ngFor="let image of room.images; let j = index"
                   [class.active]="j === 0"
                 >
-                  <!-- Inline style removed so CSS handles responsive height -->
                   <img [src]="image" class="room-image" [alt]="room.name" />
                 </div>
               </div>
@@ -67,7 +66,7 @@
               <div class="col-12 col-sm-6 d-flex flex-column justify-content-center gap-3">
                 <button
                   class="btn btn-outline-light rounded-pill px-4"
-                  [routerLink]="['/room', room.id]">
+                  [routerLink]="['/room', room.name]">
                   View Details
                 </button>
                 <button

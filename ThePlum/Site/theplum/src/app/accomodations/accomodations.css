@@ -36,9 +36,18 @@
   display: flex;
   align-items: center;
 }
+/* Lock Image Column & Prevent Layout Shift / Zooming */
+.room-card .col-md-5 {
+  height: 280px; /* Fixed mobile height */
+  background-color: rgba(0, 0, 0, 0.25); /* Subtle dark backing for any letterboxing */
+}
 
 /* Responsive Image & Carousel Styling */
-.carousel,
+.carousel {
+  height: 280px; /* Mobile height */
+  width: 100%;
+}
+
 .carousel-inner,
 .carousel-item {
   height: 100%;
@@ -46,20 +55,23 @@
 
 .room-image {
   width: 100%;
-  height: 280px; /* Aspect ratio friendly height for small screens */
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-/* Desktop layout rules */
+/* Desktop: Lock both columns to the exact same height */
 @media (min-width: 768px) {
-  .room-image {
-    height: 100%;
-    min-height: 480px; /* Ensures desktop image column matches detail height */
+  .room-card .col-md-5,
+  .room-card .col-md-7 {
+    height: 460px;
+  }
+
+  .room-details-bg {
+    overflow-y: auto;
   }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-in-out;
 }
-

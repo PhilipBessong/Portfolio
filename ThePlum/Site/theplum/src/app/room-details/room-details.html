@@ -1,5 +1,4 @@
 <div class="container-fluid py-5 animate-fade-in" *ngIf="room">
-
   <div class="container mb-4">
     <button (click)="goBack()" class="btn text-white">
       <i class="fa-solid fa-arrow-left me-2 text-orange"></i> Back to Rooms
@@ -8,40 +7,81 @@
 
   <div class="container">
     <div class="row g-4">
-
       <div class="col-lg-7 mobile-contents">
-
         <!-- 1. Carousel & Thumbnails Container (Order 1 on mobile) -->
         <div class="order-1 w-100">
-          <div id="detailsCarousel" class="carousel slide shadow-lg rounded-3 overflow-hidden" data-bs-ride="carousel">
+          <div
+            id="detailsCarousel"
+            class="carousel slide shadow-lg rounded-3 overflow-hidden"
+            data-bs-ride="carousel"
+          >
             <div class="carousel-inner">
-              <div class="carousel-item" *ngFor="let img of room.images; let i = index" [class.active]="i === 0">
-                <img [src]="img" class="d-block w-100 detail-hero-img" [alt]="room.name">
+              <div
+                class="carousel-item"
+                *ngFor="let img of room.images; let i = index"
+                [class.active]="i === 0"
+              >
+                <img
+                  [src]="img"
+                  class="d-block w-100 detail-hero-img"
+                  [alt]="room.name"
+                />
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#detailsCarousel" data-bs-slide="prev" *ngIf="room.images.length > 1">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#detailsCarousel"
+              data-bs-slide="prev"
+              *ngIf="room.images.length > 1"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#detailsCarousel" data-bs-slide="next" *ngIf="room.images.length > 1">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#detailsCarousel"
+              data-bs-slide="next"
+              *ngIf="room.images.length > 1"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
             </button>
           </div>
 
           <div class="row g-2 mt-2" *ngIf="room.images.length > 1">
             <div class="col-3" *ngFor="let thumb of room.images">
-              <img [src]="thumb" class="img-fluid rounded border-orange" style="height: 80px; object-fit: cover; width: 100%; cursor: pointer">
+              <img
+                [src]="thumb"
+                class="img-fluid rounded border-orange"
+                style="
+                  height: 80px;
+                  object-fit: cover;
+                  width: 100%;
+                  cursor: pointer;
+                "
+              />
             </div>
           </div>
         </div>
 
         <!-- 3. Features Grid (Order 3 on mobile) -->
         <div class="row g-4 mt-4 order-3 w-100" *ngIf="room.features">
-
           <div class="col-md-6" *ngIf="room.features.sleeping.length">
             <div class="p-4 glass rounded h-100">
-              <h5 class="text-orange mb-3"><i class="fa-solid fa-bed me-2"></i>Sleeping & Comfort</h5>
+              <h5 class="text-orange mb-3">
+                <i class="fa-solid fa-bed me-2"></i>Sleeping & Comfort
+              </h5>
               <ul class="list-unstyled text-white-50">
-                <li *ngFor="let item of room.features.sleeping" class="mb-2 d-flex">
+                <li
+                  *ngFor="let item of room.features.sleeping"
+                  class="mb-2 d-flex"
+                >
                   <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
                   <span>{{ item }}</span>
                 </li>
@@ -51,9 +91,15 @@
 
           <div class="col-md-6" *ngIf="room.features.kitchen.length">
             <div class="p-4 glass rounded h-100">
-              <h5 class="text-orange mb-3"><i class="fa-solid fa-utensils me-2"></i>{{ room.roomtype === 'nocook' ? 'Heat & Eat' : 'Kitchen & Dining' }}</h5>
+              <h5 class="text-orange mb-3">
+                <i class="fa-solid fa-utensils me-2"></i>{{ room.roomtype ===
+                'nocook' ? 'Heat & Eat' : 'Kitchen & Dining' }}
+              </h5>
               <ul class="list-unstyled text-white-50">
-                <li *ngFor="let item of room.features.kitchen" class="mb-2 d-flex">
+                <li
+                  *ngFor="let item of room.features.kitchen"
+                  class="mb-2 d-flex"
+                >
                   <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
                   <span>{{ item }}</span>
                 </li>
@@ -63,9 +109,14 @@
 
           <div class="col-md-6" *ngIf="room.features.bathroom.length">
             <div class="p-4 glass rounded h-100">
-              <h5 class="text-orange mb-3"><i class="fa-solid fa-shower me-2"></i>Bathroom</h5>
+              <h5 class="text-orange mb-3">
+                <i class="fa-solid fa-shower me-2"></i>Bathroom
+              </h5>
               <ul class="list-unstyled text-white-50">
-                <li *ngFor="let item of room.features.bathroom" class="mb-2 d-flex">
+                <li
+                  *ngFor="let item of room.features.bathroom"
+                  class="mb-2 d-flex"
+                >
                   <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
                   <span>{{ item }}</span>
                 </li>
@@ -75,7 +126,9 @@
 
           <div class="col-md-6" *ngIf="room.features.tech.length">
             <div class="p-4 glass rounded h-100">
-              <h5 class="text-orange mb-3"><i class="fa-solid fa-wifi me-2"></i>Tech & Connectivity</h5>
+              <h5 class="text-orange mb-3">
+                <i class="fa-solid fa-wifi me-2"></i>Tech & Connectivity
+              </h5>
               <ul class="list-unstyled text-white-50">
                 <li *ngFor="let item of room.features.tech" class="mb-2 d-flex">
                   <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
@@ -85,11 +138,16 @@
             </div>
           </div>
 
-           <div class="col-md-6" *ngIf="room.features.outdoor.length">
+          <div class="col-md-6" *ngIf="room.features.outdoor.length">
             <div class="p-4 glass rounded h-100">
-              <h5 class="text-orange mb-3"><i class="fa-solid fa-tree me-2"></i>Outdoor & Exterior</h5>
+              <h5 class="text-orange mb-3">
+                <i class="fa-solid fa-tree me-2"></i>Outdoor & Exterior
+              </h5>
               <ul class="list-unstyled text-white-50">
-                <li *ngFor="let item of room.features.outdoor" class="mb-2 d-flex">
+                <li
+                  *ngFor="let item of room.features.outdoor"
+                  class="mb-2 d-flex"
+                >
                   <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
                   <span>{{ item }}</span>
                 </li>
@@ -97,29 +155,40 @@
             </div>
           </div>
 
-           <div class="col-md-6" *ngIf="room.features.safety.length">
+          <div class="col-md-6" *ngIf="room.features.safety.length">
             <div class="p-4 glass rounded h-100">
-              <h5 class="text-orange mb-3"><i class="fa-solid fa-shield-halved me-2"></i>Safety & Services</h5>
+              <h5 class="text-orange mb-3">
+                <i class="fa-solid fa-shield-halved me-2"></i>Safety & Services
+              </h5>
               <ul class="list-unstyled text-white-50">
-                <li *ngFor="let item of room.features.safety" class="mb-2 d-flex">
+                <li
+                  *ngFor="let item of room.features.safety"
+                  class="mb-2 d-flex"
+                >
                   <i class="fa-solid fa-check text-teal me-2 small mt-1"></i>
                   <span>{{ item }}</span>
                 </li>
               </ul>
             </div>
           </div>
-
         </div>
       </div>
 
       <!-- 2. Room Details & Booking Card (Order 2 on mobile) -->
       <div class="col-lg-5 order-2">
-        <div class="card glass text-white border-0 h-100 p-4 p-md-5 shadow-lg position-sticky" style="top: 20px; z-index: 10;">
-
+        <div
+          class="card glass text-white border-0 h-100 p-4 p-md-5 shadow-lg position-sticky"
+          style="top: 20px; z-index: 10"
+        >
           <h1 class="display-5 fw-bold text-teal mb-2">{{ room.name }}</h1>
-          <p class="lead text-orange fw-bold mb-4">R{{ room.price }} <span class="text-white-50 fs-6 fw-normal">/ night</span></p>
-          <p class="text-white-50 fs-6 fw-normal">Free for children under 5 years old</p>
-          <hr class="border-white-50 mb-4">
+          <p class="lead text-orange fw-bold mb-4">
+            R{{ room.price }}
+            <span class="text-white-50 fs-6 fw-normal">/ night</span>
+          </p>
+          <p class="text-white-50 fs-6 fw-normal">
+            Free for children under 5 years old
+          </p>
+          <hr class="border-white-50 mb-4" />
 
           <div class="d-flex justify-content-between mb-4 text-center">
             <div class="p-3 glass rounded flex-fill me-2">
@@ -141,24 +210,43 @@
 
           <h5 class="fw-bold mb-3">About this room</h5>
           <p class="text-white-50 mb-4">
-            {{ room.description || 'Enjoy a relaxing stay in this beautifully furnished unit, designed to make you feel right at home.' }}
+            {{ room.description || 'Enjoy a relaxing stay in this beautifully
+            furnished unit, designed to make you feel right at home.' }}
           </p>
 
           <h5 class="fw-bold mb-3">Key Amenities</h5>
           <div class="row mb-5">
             <div class="col-6 mb-2" *ngFor="let amenity of room.amenities">
-              <i [class]="amenityIcons[amenity] || 'fa-solid fa-check'" class="text-orange me-2"></i>
+              <i
+                [class]="amenityIcons[amenity] || 'fa-solid fa-check'"
+                class="text-orange me-2"
+              ></i>
               <span class="small">{{ amenity }}</span>
             </div>
           </div>
 
-          <button onclick="window.open('https://book.nightsbridge.com/39324', '_blank')" class="btn btn-orange w-100 py-3 rounded-pill fw-bold text-uppercase shadow">
-            Book This Room
-          </button>
+          <div class="d-flex flex-column gap-3">
+            <a
+              href="https://book.nightsbridge.com/39324"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-orange w-100 py-3 rounded-pill fw-bold text-uppercase shadow"
+            >
+              Book This Room
+            </a>
 
+            <a
+              href="https://wa.me/27631504926?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20{{ room.name }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-success w-100 py-3 rounded-pill fw-bold text-uppercase shadow d-flex align-items-center justify-content-center gap-2"
+              style="background-color: #25d366; border: none"
+            >
+              <i class="fa-brands fa-whatsapp fs-5"></i> Chat on WhatsApp
+            </a>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
